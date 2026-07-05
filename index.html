@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>想いを形にするナビゲーションDX</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  background:
+    radial-gradient(circle at top,#24466f 0,#0b1220 35%,#05070d 100%);
+  color:#fff;
+  line-height:1.7;
+}
+
+button,
+input,
+textarea,
+select{
+  font-family:inherit;
+}
+
+.wrap{
+  width:min(1100px,94%);
+  margin:0 auto;
+  padding:20px 0 60px;
+}
+
+.hero{
+  padding:36px 18px 28px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  color:#dbeafe;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(32px,7vw,58px);
+  line-height:1.16;
+  letter-spacing:.03em;
+  font-weight:900;
+}
+
+.hero h1 span{
+  display:block;
+  color:#facc15;
+}
+
+.hero p{
+  max-width:760px;
+  margin:18px auto 0;
+  color:#e5e7eb;
+  font-size:clamp(16px,4vw,22px);
+  font-weight:700;
+}
+
+.heroNote{
+  margin-top:18px;
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:18px;
+  background:rgba(250,204,21,.14);
+  border:1px solid rgba(250,204,21,.35);
+  color:#fef9c3;
+  font-weight:800;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+.card{
+  background:rgba(255,255,255,.94);
+  color:#111827;
+  border-radius:26px;
+  padding:22px;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.2);
+}
+
+.card.dark{
+  background:rgba(15,23,42,.92);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.card h2{
+  margin:0 0 14px;
+  font-size:24px;
+  line-height:1.3;
+}
+
+.card h3{
+  margin:22px 0 10px;
+  font-size:18px;
+}
+
+.lead{
+  margin:0 0 16px;
+  color:#4b5563;
+  font-weight:700;
+}
+
+.dark .lead{
+  color:#d1d5db;
+}
+
+.formBlock{
+  margin:18px 0;
+  padding:18px;
+  border-radius:22px;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+
+.formBlock h3{
+  margin-top:0;
+}
+
+label.title{
+  display:block;
+  font-weight:900;
+  color:#111827;
+  margin-bottom:8px;
+  font-size:17px;
+}
+
+input[type="text"],
+textarea,
+select{
+  width:100%;
+  border:2px solid #d1d5db;
+  border-radius:16px;
+  padding:14px;
+  font-size:16px;
+  background:#fff;
+  color:#111827;
+  outline:none;
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 4px rgba(37,99,235,.14);
+}
+
+.help{
+  font-size:13px;
+  color:#6b7280;
+  margin-top:6px;
+}
+
+.checkGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+
+.checkItem{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 12px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.checkItem input{
+  width:20px;
+  height:20px;
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:22px;
+}
+
+.btn{
+  border:0;
+  border-radius:18px;
+  padding:16px 18px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.18s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.04);
+}
+
+.btnMain{
+  background:linear-gradient(135deg,#facc15,#f97316);
+  color:#111827;
+}
+
+.btnSub{
+  background:#1d4ed8;
+  color:#fff;
+}
+
+.btnGray{
+  background:#e5e7eb;
+  color:#111827;
+}
+
+.btnCopy{
+  background:#111827;
+  color:#fff;
+  padding:12px 14px;
+  border-radius:14px;
+  font-size:14px;
+}
+
+.resultArea{
+  display:none;
+  margin-top:20px;
+}
+
+.resultHeader{
+  text-align:center;
+  margin:22px 0 18px;
+}
+
+.resultHeader h2{
+  font-size:30px;
+  margin:0;
+}
+
+.outputCard{
+  margin:16px 0;
+  background:#fff;
+  color:#111827;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+
+.outputTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.outputTop h3{
+  margin:0;
+  font-size:20px;
+}
+
+pre{
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  color:#111827;
+  border-radius:18px;
+  padding:16px;
+  font-size:15px;
+  line-height:1.75;
+  margin:0;
+}
+
+.notice{
+  background:rgba(34,197,94,.14);
+  border:1px solid rgba(34,197,94,.35);
+  color:#dcfce7;
+  border-radius:20px;
+  padding:16px;
+  font-weight:800;
+  margin:20px 0;
+}
+
+.footer{
+  text-align:center;
+  color:#cbd5e1;
+  padding:28px 0 0;
+  font-size:14px;
+}
+
+@media (min-width:800px){
+  .actions{
+    grid-template-columns:2fr 1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="badge">Q&AからDX設計シートを作る</div>
+    <h1>
+      想いを形にする
+      <span>ナビゲーションDX</span>
+    </h1>
+    <p>
+      質問に答えるだけで、あなたの想いや課題を
+      DX設計シート・企画書たたき台・AI指示文に変換します。
+    </p>
+    <div class="heroNote">
+      探しに行くDXから、必要な情報と手順が届くDXへ
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>まずは、あなたの企画を聞かせてください</h2>
+    <p class="lead">
+      専門用語はいりません。思いつく範囲で入力すれば大丈夫です。
+    </p>
+
+    <div class="formBlock">
+      <label class="title" for="projectName">企画名・サービス名</label>
+      <input id="projectName" type="text" placeholder="例：地域のお知らせを届けるDX">
+      <div class="help">まだ決まっていなければ仮の名前で大丈夫です。</div>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="idea">何を形にしたいですか？</label>
+      <textarea id="idea" placeholder="例：地域イベントやお店の情報を、スマホで見やすく届けたい"></textarea>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="targetUser">誰のための企画ですか？</label>
+      <input id="targetUser" type="text" placeholder="例：地域住民、高齢者、商店主、イベント参加者">
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="problem">今、何に困っていますか？</label>
+      <textarea id="problem" placeholder="例：情報がバラバラで、必要な人に届かない。何から始めればいいか分からない。"></textarea>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="happyUser">それが解決すると、誰が喜びますか？</label>
+      <input id="happyUser" type="text" placeholder="例：地域の人、来店客、支援者、行政、指定管理者">
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="proposalTo">誰に見せたいですか？</label>
+      <select id="proposalTo">
+        <option value="自分用の整理">自分用の整理</option>
+        <option value="行政">行政</option>
+        <option value="指定管理者">指定管理者</option>
+        <option value="商店会">商店会</option>
+        <option value="自治会">自治会</option>
+        <option value="会社・事業者">会社・事業者</option>
+        <option value="お店のお客さん">お店のお客さん</option>
+        <option value="地域団体・NPO">地域団体・NPO</option>
+        <option value="クラウドファンディング支援者">クラウドファンディング支援者</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="category">近いジャンル</label>
+      <select id="category">
+        <option value="地域振興">地域振興</option>
+        <option value="お店・仕事のPR">お店・仕事のPR</option>
+        <option value="イベント告知">イベント告知</option>
+        <option value="観光案内">観光案内</option>
+        <option value="防災">防災</option>
+        <option value="高齢者支援・福祉">高齢者支援・福祉</option>
+        <option value="子育て支援">子育て支援</option>
+        <option value="空き家対策">空き家対策</option>
+        <option value="公園活用">公園活用</option>
+        <option value="クラウドファンディング">クラウドファンディング</option>
+        <option value="補助金・GCF">補助金・GCF</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <h3>必要そうな機能</h3>
+      <div class="checkGrid">
+        <label class="checkItem"><input type="checkbox" name="features" value="お知らせ表示">お知らせ表示</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="地図・道案内">地図・道案内</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="QRコード導線">QRコード導線</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="写真・動画表示">写真・動画表示</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="申し込みフォーム">申し込みフォーム</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="記録・履歴">記録・履歴</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="SNSシェア">SNSシェア</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="クラファン案内">クラファン案内</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="補助金・支援制度案内">補助金・支援制度案内</label>
+        <label class="checkItem"><input type="checkbox" name="features" value="管理画面">管理画面</label>
+      </div>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="moneyPlan">お金を集めたいですか？</label>
+      <select id="moneyPlan">
+        <option value="まだ考えていない">まだ考えていない</option>
+        <option value="無料で始めたい">無料で始めたい</option>
+        <option value="補助金を使いたい">補助金を使いたい</option>
+        <option value="GCFを使いたい">GCFを使いたい</option>
+        <option value="クラウドファンディングを使いたい">クラウドファンディングを使いたい</option>
+        <option value="企業協賛を集めたい">企業協賛を集めたい</option>
+        <option value="有料サービスにしたい">有料サービスにしたい</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="firstGoal">最初に作りたいもの</label>
+      <select id="firstGoal">
+        <option value="1ページの案内ページ">1ページの案内ページ</option>
+        <option value="QRコードで見られるページ">QRコードで見られるページ</option>
+        <option value="企画書たたき台">企画書たたき台</option>
+        <option value="イベント告知ページ">イベント告知ページ</option>
+        <option value="お店PRページ">お店PRページ</option>
+        <option value="クラファン準備ページ">クラファン準備ページ</option>
+        <option value="申し込みフォーム風ページ">申し込みフォーム風ページ</option>
+        <option value="お知らせページ">お知らせページ</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <h3>ページの雰囲気</h3>
+      <div class="checkGrid">
+        <label class="checkItem"><input type="checkbox" name="moods" value="高級感">高級感</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="信頼感">信頼感</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="親しみやすい">親しみやすい</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="やさしい">やさしい</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="おしゃれ">おしゃれ</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="未来感">未来感</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="行政風">行政風</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="地域密着">地域密着</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="高齢者向け">高齢者向け</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="クラファン向け">クラファン向け</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="和風">和風</label>
+        <label class="checkItem"><input type="checkbox" name="moods" value="自然・公園風">自然・公園風</label>
+      </div>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="referenceStyle">近いイメージ</label>
+      <select id="referenceStyle">
+        <option value="おまかせ">おまかせ</option>
+        <option value="高級車のナビ画面風">高級車のナビ画面風</option>
+        <option value="ホテルの案内画面風">ホテルの案内画面風</option>
+        <option value="行政の公式ページ風">行政の公式ページ風</option>
+        <option value="商店街のチラシ風">商店街のチラシ風</option>
+        <option value="カフェのメニュー風">カフェのメニュー風</option>
+        <option value="神社の和風案内風">神社の和風案内風</option>
+        <option value="防災マップ風">防災マップ風</option>
+        <option value="クラウドファンディングページ風">クラウドファンディングページ風</option>
+        <option value="スマホアプリ風">スマホアプリ風</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="mainColor">使いたい色</label>
+      <select id="mainColor">
+        <option value="おまかせ">おまかせ</option>
+        <option value="青系">青系</option>
+        <option value="緑系">緑系</option>
+        <option value="赤系">赤系</option>
+        <option value="黒金">黒金</option>
+        <option value="白ベース">白ベース</option>
+        <option value="木目・自然色">木目・自然色</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="fontSize">文字の大きさ</label>
+      <select id="fontSize">
+        <option value="普通">普通</option>
+        <option value="大きめ">大きめ</option>
+        <option value="高齢者向けにかなり大きく">高齢者向けにかなり大きく</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="photoBalance">写真と文字のバランス</label>
+      <select id="photoBalance">
+        <option value="写真と文字を半分ずつ">写真と文字を半分ずつ</option>
+        <option value="写真中心">写真中心</option>
+        <option value="文字中心">文字中心</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button class="btn btnMain" onclick="generateDX()">DX設計シートを作る</button>
+      <button class="btn btnSub" onclick="fillSample()">サンプル入力</button>
+      <button class="btn btnGray" onclick="clearForm()">クリア</button>
+    </div>
+  </section>
+
+  <section id="resultArea" class="resultArea">
+
+    <div class="resultHeader">
+      <h2>生成結果</h2>
+      <p>必要なところをコピーして、AIやドキュメントに貼り付けてください。</p>
+    </div>
+
+    <div class="notice" id="copyNotice" style="display:none;">
+      コピーしました。
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>DX設計シート</h3>
+        <button class="btn btnCopy" onclick="copyText('sheetOutput')">コピー</button>
+      </div>
+      <pre id="sheetOutput"></pre>
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>企画書たたき台</h3>
+        <button class="btn btnCopy" onclick="copyText('proposalOutput')">コピー</button>
+      </div>
+      <pre id="proposalOutput"></pre>
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>制作手順</h3>
+        <button class="btn btnCopy" onclick="copyText('roadmapOutput')">コピー</button>
+      </div>
+      <pre id="roadmapOutput"></pre>
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>AIに渡す制作指示文</h3>
+        <button class="btn btnCopy" onclick="copyText('aiPromptOutput')">コピー</button>
+      </div>
+      <pre id="aiPromptOutput"></pre>
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>デザイン指示文</h3>
+        <button class="btn btnCopy" onclick="copyText('designOutput')">コピー</button>
+      </div>
+      <pre id="designOutput"></pre>
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>全部まとめた文章</h3>
+        <button class="btn btnCopy" onclick="copyText('allOutput')">全部コピー</button>
+      </div>
+      <pre id="allOutput"></pre>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    想いを形にするナビゲーションDX<br>
+    Q&Aから設計シート・企画書・AI指示文へ
+  </footer>
+
+</div>
+
+<script>
+function val(id){
+  const el = document.getElementById(id);
+  return el ? String(el.value || "").trim() : "";
+}
+
+function checkedValues(name){
+  return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked'))
+    .map(el => el.value);
+}
+
+function textOrDefault(text, fallback){
+  return text && text.length ? text : fallback;
+}
+
+function listText(arr, fallback){
+  if(!arr || arr.length === 0){
+    return fallback;
+  }
+  return arr.map(v => "・" + v).join("\n");
+}
+
+function generateName(projectName, category){
+  if(projectName){
+    return projectName;
+  }
+
+  if(category === "お店・仕事のPR"){
+    return "お店の魅力を届けるDX";
+  }
+
+  if(category === "イベント告知"){
+    return "イベント案内ナビゲーションDX";
+  }
+
+  if(category === "防災"){
+    return "地域防災ナビゲーションDX";
+  }
+
+  if(category === "高齢者支援・福祉"){
+    return "地域生活支援ナビゲーションDX";
+  }
+
+  if(category === "公園活用"){
+    return "次世代型公園活用DX";
+  }
+
+  if(category === "クラウドファンディング"){
+    return "応援を集めるクラファン準備DX";
+  }
+
+  return "想いを形にするDX";
+}
+
+function proposalTone(proposalTo){
+  const map = {
+    "行政":"公共性、地域課題の解決、安全性、継続性、予算化のしやすさを重視する。",
+    "指定管理者":"現場運用のしやすさ、利用者満足度、にぎわい創出、管理負担の少なさを重視する。",
+    "商店会":"来街者増加、回遊性、個店PR、商店街全体のにぎわいを重視する。",
+    "自治会":"地域住民への分かりやすさ、見守り、防災、負担の少ない運用を重視する。",
+    "会社・事業者":"売上、集客、業務効率化、顧客満足、ブランド向上を重視する。",
+    "お店のお客さん":"見やすさ、来店したくなる雰囲気、写真、メニュー、アクセスを重視する。",
+    "地域団体・NPO":"共感、参加しやすさ、活動の見える化、継続しやすい運用を重視する。",
+    "クラウドファンディング支援者":"物語性、共感、支援理由、未来像、応援したくなる見せ方を重視する。",
+    "自分用の整理":"目的、対象者、最初に作るもの、作る順番を分かりやすく整理する。"
+  };
+
+  return map[proposalTo] || map["自分用の整理"];
+}
+
+function recommendMinimum(features, firstGoal){
+  const lines = [];
+
+  lines.push("まずは「" + firstGoal + "」を1ページで作る。");
+
+  if(features.includes("お知らせ表示")){
+    lines.push("お知らせや案内文を表示する。");
+  }
+
+  if(features.includes("地図・道案内")){
+    lines.push("Googleマップ等へのリンクを置く。");
+  }
+
+  if(features.includes("QRコード導線")){
+    lines.push("QRコードからスマホで開ける導線を作る。");
+  }
+
+  if(features.includes("写真・動画表示")){
+    lines.push("写真やYouTube動画を1つ表示する。");
+  }
+
+  if(features.includes("申し込みフォーム")){
+    lines.push("最初はGoogleフォーム等へのリンクで対応する。");
+  }
+
+  if(features.includes("SNSシェア")){
+    lines.push("SNSに投稿しやすい紹介文を用意する。");
+  }
+
+  if(lines.length <= 1){
+    lines.push("まずは説明文、見出し、ボタンだけのシンプルなページにする。");
+  }
+
+  return lines.map(v => "・" + v).join("\n");
+}
+
+function recommendLater(features){
+  const later = [];
+
+  if(features.includes("管理画面")){
+    later.push("管理画面");
+  }else{
+    later.push("簡易管理機能");
+  }
+
+  if(features.includes("記録・履歴")){
+    later.push("Googleスプレッドシート連携");
+    later.push("記録・履歴保存");
+  }
+
+  if(features.includes("申し込みフォーム")){
+    later.push("申し込みデータ保存");
+  }
+
+  if(features.includes("補助金・支援制度案内")){
+    later.push("補助金・支援制度の候補表示");
+  }
+
+  if(features.includes("クラファン案内")){
+    later.push("クラウドファンディング本文作成");
+    later.push("支援メニュー作成");
+  }
+
+  later.push("PDF出力");
+  later.push("SNS用画像・投稿文作成");
+
+  return later.map(v => "・" + v).join("\n");
+}
+
+function fundingDiagnosis(category, moneyPlan, proposalTo, features){
+  const lines = [];
+
+  if(moneyPlan === "GCFを使いたい" || category === "補助金・GCF"){
+    lines.push("GCF向き：公共性や地域課題解決の要素を強く出すと相性が良い。");
+  }
+
+  if(moneyPlan === "補助金を使いたい" || features.includes("補助金・支援制度案内")){
+    lines.push("補助金向き：目的、対象者、地域への効果、継続性を整理する必要がある。");
+  }
+
+  if(moneyPlan === "クラウドファンディングを使いたい" || proposalTo === "クラウドファンディング支援者" || features.includes("クラファン案内")){
+    lines.push("クラウドファンディング向き：共感できる物語、写真、支援メニュー、使い道の明確化が重要。");
+  }
+
+  if(moneyPlan === "企業協賛を集めたい"){
+    lines.push("企業協賛向き：企業にとってのPR効果、地域貢献、協賛表示のメリットを整理する。");
+  }
+
+  if(moneyPlan === "有料サービスにしたい"){
+    lines.push("有料サービス向き：無料版と有料版の違い、利用者が払う理由を明確にする。");
+  }
+
+  if(lines.length === 0){
+    lines.push("まずは無料または低コストの最小版で実証し、反応を見てから資金調達を検討する。");
+  }
+
+  return lines.map(v => "・" + v).join("\n");
+}
+
+function screenPlan(features, firstGoal){
+  const screens = [];
+
+  screens.push("トップ：企画の目的と一言説明");
+  screens.push("本文：" + firstGoal + "の内容");
+  screens.push("行動ボタン：問い合わせ、地図、申し込み、SNSなど");
+
+  if(features.includes("お知らせ表示")){
+    screens.push("お知らせエリア");
+  }
+
+  if(features.includes("写真・動画表示")){
+    screens.push("写真・動画エリア");
+  }
+
+  if(features.includes("地図・道案内")){
+    screens.push("アクセス・地図エリア");
+  }
+
+  if(features.includes("クラファン案内")){
+    screens.push("応援・支援案内エリア");
+  }
+
+  return screens.map(v => "・" + v).join("\n");
+}
+
+function dataPlan(features){
+  const data = [];
+
+  data.push("最小版：HTML内に直接記載");
+  data.push("保存なし：まずは表示とコピーを優先");
+
+  if(features.includes("記録・履歴") || features.includes("申し込みフォーム") || features.includes("管理画面")){
+    data.push("次段階：Googleスプレッドシート連携");
+  }
+
+  if(features.includes("お知らせ表示")){
+    data.push("次段階：お知らせ一覧データ");
+  }
+
+  if(features.includes("写真・動画表示")){
+    data.push("次段階：画像URL・YouTube URL管理");
+  }
+
+  return data.map(v => "・" + v).join("\n");
+}
+
+function designPrompt(moods, referenceStyle, mainColor, fontSize, photoBalance){
+  const parts = [];
+
+  if(moods.includes("高級感")){
+    parts.push("高級感と上品さを重視する。");
+  }
+
+  if(moods.includes("信頼感") || moods.includes("行政風")){
+    parts.push("信頼感、清潔感、公共性が伝わるデザインにする。");
+  }
+
+  if(moods.includes("親しみやすい") || moods.includes("やさしい") || moods.includes("地域密着")){
+    parts.push("地域密着で、あたたかく親しみやすい雰囲気にする。");
+  }
+
+  if(moods.includes("おしゃれ")){
+    parts.push("写真や見出しが映える、おしゃれな店舗PR風にする。");
+  }
+
+  if(moods.includes("未来感")){
+    parts.push("未来感のあるスマートなDXデザインにする。");
+  }
+
+  if(moods.includes("高齢者向け")){
+    parts.push("高齢者にも見やすい大きな文字と大きなボタンにする。");
+  }
+
+  if(moods.includes("クラファン向け")){
+    parts.push("共感と物語性が伝わり、応援したくなる構成にする。");
+  }
+
+  if(moods.includes("和風")){
+    parts.push("和風で落ち着きがあり、伝統やご縁を感じる雰囲気にする。");
+  }
+
+  if(moods.includes("自然・公園風")){
+    parts.push("自然、公園、水辺、木漏れ日を感じるナチュラルな雰囲気にする。");
+  }
+
+  if(parts.length === 0){
+    parts.push("見やすく、分かりやすく、スマホで使いやすいデザインにする。");
+  }
+
+  const colorText =
+    mainColor === "おまかせ"
+      ? "色は企画内容に合わせて自然に選ぶ。"
+      : "色は" + mainColor + "を基調にする。";
+
+  const refText =
+    referenceStyle === "おまかせ"
+      ? "特定の参考イメージに寄せすぎず、利用者に分かりやすい画面にする。"
+      : "全体の参考イメージは「" + referenceStyle + "」。";
+
+  return [
+    "デザイン指示文：",
+    "",
+    parts.join("\n"),
+    colorText,
+    "文字サイズは「" + fontSize + "」。",
+    "写真と文字のバランスは「" + photoBalance + "」。",
+    refText,
+    "スマホで見た時に、最初の画面で目的が分かり、ボタンを押しやすい構成にする。",
+    "余白をしっかり取り、見出し、本文、ボタンの役割を分かりやすく分ける。"
+  ].join("\n");
+}
+
+function buildOutputs(){
+  const projectName = val("projectName");
+  const idea = val("idea");
+  const targetUser = val("targetUser");
+  const problem = val("problem");
+  const happyUser = val("happyUser");
+  const proposalTo = val("proposalTo");
+  const category = val("category");
+  const moneyPlan = val("moneyPlan");
+  const firstGoal = val("firstGoal");
+  const referenceStyle = val("referenceStyle");
+  const mainColor = val("mainColor");
+  const fontSize = val("fontSize");
+  const photoBalance = val("photoBalance");
+
+  const features = checkedValues("features");
+  const moods = checkedValues("moods");
+
+  const dxName = generateName(projectName, category);
+
+  const purpose = textOrDefault(
+    idea,
+    category + "に関する想いや課題を、スマホで見やすいDXとして形にする。"
+  );
+
+  const target = textOrDefault(
+    targetUser,
+    "この企画を必要としている地域住民・利用者"
+  );
+
+  const issue = textOrDefault(
+    problem,
+    "情報や手順が整理されておらず、何から始めればよいか分かりにくい。"
+  );
+
+  const happy = textOrDefault(
+    happyUser,
+    target
+  );
+
+  const featureText = listText(features, "・まずは案内表示\n・問い合わせ導線\n・スマホで見やすいページ");
+  const minimumText = recommendMinimum(features, firstGoal);
+  const laterText = recommendLater(features);
+  const fundingText = fundingDiagnosis(category, moneyPlan, proposalTo, features);
+  const screenText = screenPlan(features, firstGoal);
+  const dataText = dataPlan(features);
+  const toneText = proposalTone(proposalTo);
+  const designText = designPrompt(moods, referenceStyle, mainColor, fontSize, photoBalance);
+
+  const sheet = [
+    "【DX設計シート】",
+    "",
+    "DX名：",
+    dxName,
+    "",
+    "ジャンル：",
+    category,
+    "",
+    "目的：",
+    purpose,
+    "",
+    "対象者：",
+    target,
+    "",
+    "解決したい課題：",
+    issue,
+    "",
+    "解決すると喜ぶ人：",
+    happy,
+    "",
+    "提案先・見せたい相手：",
+    proposalTo,
+    "",
+    "提案時に重視する視点：",
+    toneText,
+    "",
+    "必要機能：",
+    featureText,
+    "",
+    "最小版で作る機能：",
+    minimumText,
+    "",
+    "後から追加する機能：",
+    laterText,
+    "",
+    "画面構成：",
+    screenText,
+    "",
+    "データ構成：",
+    dataText,
+    "",
+    "デザイン方針：",
+    "・雰囲気：" + (moods.length ? moods.join("、") : "見やすい、分かりやすい"),
+    "・参考イメージ：" + referenceStyle,
+    "・色：" + mainColor,
+    "・文字サイズ：" + fontSize,
+    "・写真と文字：" + photoBalance,
+    "",
+    "補助金・GCF・クラファン向き診断：",
+    fundingText,
+    "",
+    "次に作るもの：",
+    "・" + firstGoal,
+    "・スマホで確認できる1ページ版",
+    "・必要に応じてQRコード導線"
+  ].join("\n");
+
+  const proposal = [
+    "【企画書たたき台】",
+    "",
+    "1. タイトル",
+    dxName,
+    "",
+    "2. 背景と課題",
+    target + "に向けて、" + category + "に関する情報や手順を分かりやすく届ける必要がある。",
+    "しかし現状では、" + issue,
+    "そのため、必要な人に必要な情報が届かず、企画や活動が形になりにくい状況がある。",
+    "",
+    "3. コンセプト",
+    "本企画は、利用者が情報を自分で探しに行くのではなく、目的や課題に応じて必要な情報と手順が届くDXである。",
+    "専門知識がなくても、スマホで見やすく、迷わず次の行動につながる仕組みを目指す。",
+    "",
+    "4. 提供価値",
+    "・情報を分かりやすく整理する",
+    "・スマホで見やすい形にする",
+    "・QRコードやSNSで届けやすくする",
+    "・企画、提案、告知、支援募集につなげる",
+    "・小さく始めて大きく育てる",
+    "",
+    "5. システム概要",
+    "最初は1ページのWebアプリとして作成する。",
+    "内容は、企画説明、必要情報、行動ボタン、問い合わせや地図などの導線を中心にする。",
+    "",
+    "6. 最小版",
+    minimumText,
+    "",
+    "7. 展開策",
+    laterText,
+    "",
+    "8. 期待される効果",
+    "・企画の内容が伝わりやすくなる",
+    "・利用者が迷わず行動できる",
+    "・地域やお店の情報発信がしやすくなる",
+    "・提案書、SNS、クラウドファンディングへの展開がしやすくなる",
+    "・DXの知識がない人でも、想いを形にしやすくなる"
+  ].join("\n");
+
+  const roadmap = [
+    "【制作手順】",
+    "",
+    "1. まず1ページで作る",
+    "最初から全部作らず、" + firstGoal + "としてスマホで見られる形にする。",
+    "",
+    "2. 目的と対象者を大きく表示する",
+    "誰のために、何を解決するページなのかを最初の画面で分かるようにする。",
+    "",
+    "3. 必要な情報だけを載せる",
+    "文章、写真、ボタンを絞り、利用者が迷わない構成にする。",
+    "",
+    "4. QRコードやSNSで見られるようにする",
+    "公開後、URLをQRコード化し、チラシやSNSから見られるようにする。",
+    "",
+    "5. スマホで動作確認する",
+    "文字の大きさ、ボタンの押しやすさ、表示崩れを確認する。",
+    "",
+    "6. 動いた部分は壊さずロックする",
+    "修正は壊れている箇所だけにする。",
+    "",
+    "7. 追加機能は1つずつ入れる",
+    "お知らせ、フォーム、スプレッドシート連携、PDF、クラファンなどは後から順番に追加する。"
+  ].join("\n");
+
+  const aiPrompt = [
+    "【AIに渡す制作指示文】",
+    "",
+    "これから「" + dxName + "」というDXを作ります。",
+    "",
+    "目的：",
+    purpose,
+    "",
+    "対象者：",
+    target,
+    "",
+    "解決したい課題：",
+    issue,
+    "",
+    "提案先・見せたい相手：",
+    proposalTo,
+    "",
+    "必要機能：",
+    featureText,
+    "",
+    "最小版：",
+    minimumText,
+    "",
+    "デザイン方針：",
+    designText,
+    "",
+    "制作ルール：",
+    "・いきなり全部作らない",
+    "・まず1ページで動く最小版を作る",
+    "・スマホで見やすいことを優先する",
+    "・動いている部分を壊さない",
+    "・追加機能は1つずつ入れる",
+    "・コードを書く場合は、ファイル名と全文コードを出す",
+    "・説明より、実際に貼り付けて使える形を優先する",
+    "",
+    "まずは index.html 1ファイルで動く形を作ってください。"
+  ].join("\n");
+
+  const all = [
+    sheet,
+    "",
+    "━━━━━━━━━━━━━━━━━━",
+    "",
+    proposal,
+    "",
+    "━━━━━━━━━━━━━━━━━━",
+    "",
+    roadmap,
+    "",
+    "━━━━━━━━━━━━━━━━━━",
+    "",
+    aiPrompt,
+    "",
+    "━━━━━━━━━━━━━━━━━━",
+    "",
+    designText
+  ].join("\n");
+
+  return {
+    sheet,
+    proposal,
+    roadmap,
+    aiPrompt,
+    designText,
+    all
+  };
+}
+
+function generateDX(){
+  const outputs = buildOutputs();
+
+  document.getElementById("sheetOutput").textContent = outputs.sheet;
+  document.getElementById("proposalOutput").textContent = outputs.proposal;
+  document.getElementById("roadmapOutput").textContent = outputs.roadmap;
+  document.getElementById("aiPromptOutput").textContent = outputs.aiPrompt;
+  document.getElementById("designOutput").textContent = outputs.designText;
+  document.getElementById("allOutput").textContent = outputs.all;
+
+  document.getElementById("resultArea").style.display = "block";
+  document.getElementById("resultArea").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+async function copyText(id){
+  const text = document.getElementById(id).textContent;
+
+  try{
+    await navigator.clipboard.writeText(text);
+    showCopyNotice();
+  }catch(e){
+    const temp = document.createElement("textarea");
+    temp.value = text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+    showCopyNotice();
+  }
+}
+
+function showCopyNotice(){
+  const notice = document.getElementById("copyNotice");
+  notice.style.display = "block";
+
+  setTimeout(function(){
+    notice.style.display = "none";
+  },1800);
+}
+
+function fillSample(){
+  document.getElementById("projectName").value = "地域イベントを届けるDX";
+  document.getElementById("idea").value = "地域のイベント情報やお知らせを、スマホで見やすく届けたい。QRコードからすぐ見られる案内ページにしたい。";
+  document.getElementById("targetUser").value = "地域住民、イベント参加者、高齢者、商店街のお客様";
+  document.getElementById("problem").value = "情報がチラシ、SNS、口伝えでバラバラになっていて、必要な人に届きにくい。";
+  document.getElementById("happyUser").value = "地域住民、イベント主催者、商店街、参加者";
+  document.getElementById("proposalTo").value = "商店会";
+  document.getElementById("category").value = "イベント告知";
+  document.getElementById("moneyPlan").value = "無料で始めたい";
+  document.getElementById("firstGoal").value = "イベント告知ページ";
+  document.getElementById("referenceStyle").value = "スマホアプリ風";
+  document.getElementById("mainColor").value = "青系";
+  document.getElementById("fontSize").value = "大きめ";
+  document.getElementById("photoBalance").value = "写真と文字を半分ずつ";
+
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+
+  ["お知らせ表示","地図・道案内","QRコード導線","写真・動画表示","SNSシェア"].forEach(value => {
+    const el = Array.from(document.querySelectorAll('input[name="features"]'))
+      .find(input => input.value === value);
+    if(el){ el.checked = true; }
+  });
+
+  ["親しみやすい","地域密着","やさしい","高齢者向け"].forEach(value => {
+    const el = Array.from(document.querySelectorAll('input[name="moods"]'))
+      .find(input => input.value === value);
+    if(el){ el.checked = true; }
+  });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function clearForm(){
+  if(!confirm("入力内容をクリアしますか？")){
+    return;
+  }
+
+  document.querySelectorAll("input[type='text'], textarea").forEach(el => {
+    el.value = "";
+  });
+
+  document.querySelectorAll("select").forEach(el => {
+    el.selectedIndex = 0;
+  });
+
+  document.querySelectorAll("input[type='checkbox']").forEach(el => {
+    el.checked = false;
+  });
+
+  document.getElementById("resultArea").style.display = "none";
+}
+</script>
+
+</body>
+</html>
