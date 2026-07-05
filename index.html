@@ -6,6 +6,25 @@
 
 <title>想いを形にするナビゲーションDX</title>
 
+<meta name="description" content="質問に答えるだけで、あなたの想いや課題をDX設計シート・企画書たたき台・AI指示文に変換する伴走型ナビゲーションDXです。">
+
+<meta property="og:site_name" content="想いを形にするナビゲーションDX">
+<meta property="og:title" content="想いを形にするナビゲーションDX">
+<meta property="og:description" content="質問に答えるだけで、DX設計シート・企画書・AI指示文を作ります。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/">
+<meta property="og:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/ogp.jpg">
+<meta property="og:image:secure_url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/ogp.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="想いを形にするナビゲーションDX">
+<meta name="twitter:description" content="質問に答えるだけで、DX設計シート・企画書・AI指示文を作ります。">
+<meta name="twitter:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/ogp.jpg">
+
 <style>
 *{
   box-sizing:border-box;
@@ -28,6 +47,11 @@ body{
   line-height:1.7;
 }
 
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
 button,
 input,
 textarea,
@@ -41,9 +65,51 @@ select{
   padding:20px 0 60px;
 }
 
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 0 18px;
+}
+
+.logo{
+  font-weight:900;
+  letter-spacing:.04em;
+  font-size:18px;
+}
+
+.nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.nav a{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  color:#e5e7eb;
+  font-size:14px;
+  font-weight:800;
+}
+
 .hero{
-  padding:36px 18px 28px;
+  padding:28px 0 28px;
+}
+
+.heroGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:center;
+}
+
+.heroText{
   text-align:center;
+  padding:10px 8px;
 }
 
 .badge{
@@ -90,10 +156,34 @@ select{
   font-weight:800;
 }
 
-.grid{
+.heroImageBox{
+  border-radius:30px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 24px 70px rgba(0,0,0,.42);
+  background:#000;
+}
+
+.heroImageBox img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.imageStrip{
   display:grid;
   grid-template-columns:1fr;
-  gap:16px;
+  gap:14px;
+  margin:16px 0;
+}
+
+.infoImage{
+  width:100%;
+  display:block;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 38px rgba(0,0,0,.24);
+  background:#000;
 }
 
 .card{
@@ -101,6 +191,7 @@ select{
   color:#111827;
   border-radius:26px;
   padding:22px;
+  margin:16px 0;
   box-shadow:0 18px 50px rgba(0,0,0,.28);
   border:1px solid rgba(255,255,255,.2);
 }
@@ -221,6 +312,8 @@ select:focus{
   font-weight:900;
   cursor:pointer;
   transition:.18s;
+  display:block;
+  text-align:center;
 }
 
 .btn:hover{
@@ -311,6 +404,29 @@ pre{
   margin:20px 0;
 }
 
+.featureGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.feature{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  padding:18px;
+}
+
+.feature h3{
+  margin:0 0 8px;
+}
+
+.feature p{
+  margin:0;
+  color:#374151;
+  font-weight:700;
+}
+
 .footer{
   text-align:center;
   color:#cbd5e1;
@@ -319,8 +435,24 @@ pre{
 }
 
 @media (min-width:800px){
+  .heroGrid{
+    grid-template-columns:1.05fr .95fr;
+  }
+
+  .heroText{
+    text-align:left;
+  }
+
+  .imageStrip{
+    grid-template-columns:repeat(3,1fr);
+  }
+
   .actions{
     grid-template-columns:2fr 1fr 1fr;
+  }
+
+  .featureGrid{
+    grid-template-columns:repeat(3,1fr);
   }
 }
 </style>
@@ -330,18 +462,63 @@ pre{
 
 <div class="wrap">
 
+  <header class="header">
+    <div class="logo">想いを形にするDX</div>
+    <nav class="nav">
+      <a href="index.html">診断ページ</a>
+      <a href="about.html">このDXについて</a>
+      <a href="contact.html">相談・依頼</a>
+    </nav>
+  </header>
+
   <section class="hero">
-    <div class="badge">Q&AからDX設計シートを作る</div>
-    <h1>
-      想いを形にする
-      <span>ナビゲーションDX</span>
-    </h1>
-    <p>
-      質問に答えるだけで、あなたの想いや課題を
-      DX設計シート・企画書たたき台・AI指示文に変換します。
+    <div class="heroGrid">
+      <div class="heroText">
+        <div class="badge">Q&AからDX設計シートを作る</div>
+        <h1>
+          想いを形にする
+          <span>ナビゲーションDX</span>
+        </h1>
+        <p>
+          質問に答えるだけで、あなたの想いや課題を
+          DX設計シート・企画書たたき台・AI指示文に変換します。
+        </p>
+        <div class="heroNote">
+          探しに行くDXから、必要な情報と手順が届くDXへ
+        </div>
+      </div>
+
+      <div class="heroImageBox">
+        <img src="images/hero-main.jpg" alt="想いを形にするナビゲーションDX">
+      </div>
+    </div>
+  </section>
+
+  <section class="card dark">
+    <h2>このDXでできること</h2>
+    <p class="lead">
+      アイデアを整理し、最初に何を作ればいいかを見える化します。
     </p>
-    <div class="heroNote">
-      探しに行くDXから、必要な情報と手順が届くDXへ
+
+    <div class="imageStrip">
+      <img class="infoImage" src="images/qa-sheet.jpg" alt="Q&Aから設計シート">
+      <img class="infoImage" src="images/design-navigation.jpg" alt="デザイン指示文の作成">
+      <img class="infoImage" src="images/local-dx.jpg" alt="地域やお店のDX化">
+    </div>
+
+    <div class="featureGrid">
+      <div class="feature">
+        <h3>Q&Aで整理</h3>
+        <p>専門用語を使わず、やりたいこと・困っていることを整理します。</p>
+      </div>
+      <div class="feature">
+        <h3>設計シート化</h3>
+        <p>目的、対象者、必要機能、最小版、追加機能を自動でまとめます。</p>
+      </div>
+      <div class="feature">
+        <h3>AI指示文まで出力</h3>
+        <p>次のAIにそのまま渡せる制作指示文を作ります。</p>
+      </div>
     </div>
   </section>
 
