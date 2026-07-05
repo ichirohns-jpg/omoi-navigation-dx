@@ -24,8 +24,8 @@
 <meta property="og:description" content="質問に答えるだけで、DX設計シート・企画書・AI指示文を作ります。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/">
-<meta property="og:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/%E7%94%BB%E5%83%8F/images_ogp.jpg">
-<meta property="og:image:secure_url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/%E7%94%BB%E5%83%8F/images_ogp.jpg">
+<meta property="og:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
+<meta property="og:image:secure_url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="想いを形にするナビゲーションDX">
 <meta name="twitter:description" content="質問に答えるだけで、DX設計シート・企画書・AI指示文を作ります。">
-<meta name="twitter:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/%E7%94%BB%E5%83%8F/images_ogp.jpg">
+<meta name="twitter:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
 
 <style>
 *{
@@ -215,53 +215,63 @@ img{
   border:1px solid rgba(255,255,255,.16);
 }
 
-.grid3{
+.imageStrip{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin:16px 0;
+}
+
+.infoImage{
+  width:100%;
+  display:block;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 38px rgba(0,0,0,.24);
+  background:#000;
+}
+
+.featureGrid{
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
+  margin-top:18px;
 }
 
-.featureCard{
-  overflow:hidden;
-  padding:0;
-}
-
-.featureCard img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-
-.featureBody{
+.feature{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:20px;
   padding:18px;
 }
 
-.featureBody h3{
+.feature h3{
   margin:0 0 8px;
   font-size:20px;
 }
 
-.featureBody p{
+.feature p{
   margin:0;
-  color:#374151;
+  color:#d1d5db;
   font-weight:700;
 }
 
-.formArea{
+.formGrid{
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
 }
 
-.field{
-  margin-bottom:18px;
+.formBlock{
+  margin-bottom:4px;
 }
 
-.field label,
-.fieldTitle{
+.formBlock h3,
+.formBlock .title,
+.formBlock label.title{
   display:block;
   font-weight:900;
-  margin-bottom:8px;
+  margin:0 0 8px;
   color:#111827;
 }
 
@@ -297,13 +307,13 @@ select:focus{
   box-shadow:0 0 0 4px rgba(37,99,235,.15);
 }
 
-.choiceGrid{
+.checkGrid{
   display:grid;
   grid-template-columns:1fr;
   gap:8px;
 }
 
-.choice{
+.checkItem{
   display:flex;
   align-items:flex-start;
   gap:8px;
@@ -315,11 +325,11 @@ select:focus{
   font-weight:800;
 }
 
-.choice input{
+.checkItem input{
   margin-top:5px;
 }
 
-.btnArea{
+.actions{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
@@ -345,7 +355,7 @@ select:focus{
   color:#111827;
 }
 
-.btnGhost{
+.btnGray{
   background:transparent;
   color:#111827;
   border:1px solid #cbd5e1;
@@ -362,11 +372,38 @@ select:focus{
   transform:translateY(-1px);
 }
 
-.result{
+.resultArea{
   display:none;
+  margin-top:32px;
 }
 
-.result.show{
+.resultArea.show{
+  display:block;
+}
+
+.resultHeader h2{
+  margin:0 0 8px;
+  font-size:clamp(24px,5vw,36px);
+}
+
+.resultHeader p{
+  margin:0 0 16px;
+  color:#d1d5db;
+  font-weight:700;
+}
+
+.notice{
+  display:none;
+  margin:0 0 12px;
+  padding:10px 14px;
+  border-radius:14px;
+  background:rgba(34,197,94,.16);
+  border:1px solid rgba(34,197,94,.4);
+  color:#bbf7d0;
+  font-weight:900;
+}
+
+.notice.show{
   display:block;
 }
 
@@ -384,7 +421,7 @@ select:focus{
   box-shadow:0 14px 38px rgba(0,0,0,.22);
 }
 
-.outputHead{
+.outputTop{
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -392,7 +429,7 @@ select:focus{
   margin-bottom:10px;
 }
 
-.outputHead h3{
+.outputTop h3{
   margin:0;
   font-size:19px;
 }
@@ -408,21 +445,6 @@ pre{
   overflow:auto;
   font-size:14px;
   line-height:1.8;
-}
-
-.copyNotice{
-  display:none;
-  margin:0 0 12px;
-  padding:10px 14px;
-  border-radius:14px;
-  background:rgba(34,197,94,.16);
-  border:1px solid rgba(34,197,94,.4);
-  color:#bbf7d0;
-  font-weight:900;
-}
-
-.copyNotice.show{
-  display:block;
 }
 
 .footer{
@@ -447,19 +469,23 @@ pre{
     margin-right:0;
   }
 
-  .grid3{
+  .imageStrip{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .formArea{
+  .featureGrid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .formGrid{
     grid-template-columns:1fr 1fr;
   }
 
-  .span2{
+  .wide{
     grid-column:1 / -1;
   }
 
-  .choiceGrid{
+  .checkGrid{
     grid-template-columns:repeat(2,1fr);
   }
 
@@ -467,7 +493,7 @@ pre{
     grid-template-columns:1fr 1fr;
   }
 
-  .wide{
+  .outputCardFull{
     grid-column:1 / -1;
   }
 }
@@ -487,12 +513,17 @@ pre{
     padding:18px;
   }
 
-  .featureCard{
-    padding:0;
-  }
-
   .btn{
     width:100%;
+  }
+
+  .outputTop{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .btnCopy{
+    width:auto;
   }
 }
 </style>
@@ -520,39 +551,36 @@ pre{
           <div class="heroNote">探しに行くDXから、必要な情報と手順が届くDXへ</div>
         </div>
         <div class="heroImageBox">
-          <img src="画像/images_hero-main.jpg" alt="想いを形にするナビゲーションDX">
+          <img src="images/images_hero-main.jpg" alt="想いを形にするナビゲーションDX">
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section cardDark card">
       <h2 class="sectionTitle">このDXでできること</h2>
       <p class="sectionLead">アイデアを整理し、最初に何を作ればいいかを見える化します。</p>
 
-      <div class="grid3">
-        <article class="card featureCard">
-          <img src="画像/images_qa-sheet.jpg" alt="Q&Aから設計シート">
-          <div class="featureBody">
-            <h3>Q&Aで整理</h3>
-            <p>専門用語を使わず、やりたいこと・困っていることを整理します。</p>
-          </div>
-        </article>
+      <div class="imageStrip">
+        <img class="infoImage" src="images/images_qa-sheet.jpg" alt="Q&Aから設計シート" loading="lazy">
+        <img class="infoImage" src="images/images_design-navigation.jpg" alt="デザイン指示文の作成" loading="lazy">
+        <img class="infoImage" src="images/images_local-dx.jpg" alt="地域やお店のDX化" loading="lazy">
+      </div>
 
-        <article class="card featureCard">
-          <img src="画像/images_design-navigation.jpg" alt="デザイン指示文の作成">
-          <div class="featureBody">
-            <h3>AI指示文まで出力</h3>
-            <p>次のAIにそのまま渡せる制作指示文を作ります。</p>
-          </div>
-        </article>
+      <div class="featureGrid">
+        <div class="feature">
+          <h3>Q&Aで整理</h3>
+          <p>専門用語を使わず、やりたいこと・困っていることを整理します。</p>
+        </div>
 
-        <article class="card featureCard">
-          <img src="画像/images_local-dx.jpg" alt="地域やお店のDX化">
-          <div class="featureBody">
-            <h3>地域DXに使える</h3>
-            <p>お店、イベント、地域活動、空き家対策、福祉、防災などに使えます。</p>
-          </div>
-        </article>
+        <div class="feature">
+          <h3>設計シート化</h3>
+          <p>目的、対象者、必要機能、最小版、追加機能を自動でまとめます。</p>
+        </div>
+
+        <div class="feature">
+          <h3>AI指示文まで出力</h3>
+          <p>次のAIにそのまま渡せる制作指示文を作ります。</p>
+        </div>
       </div>
     </section>
 
@@ -561,16 +589,16 @@ pre{
       <p class="sectionLead">専門用語はいりません。思いつく範囲で入力すれば大丈夫です。</p>
 
       <form class="card" id="dxForm">
-        <div class="formArea">
+        <div class="formGrid">
 
-          <div class="field">
-            <label for="projectName">企画名・サービス名</label>
+          <div class="formBlock">
+            <label class="title" for="projectName">企画名・サービス名</label>
             <p class="hint">まだ決まっていなければ仮の名前で大丈夫です。</p>
             <input id="projectName" type="text" placeholder="例：志木お助けナビ">
           </div>
 
-          <div class="field">
-            <label for="category">近いジャンル</label>
+          <div class="formBlock">
+            <label class="title" for="category">近いジャンル</label>
             <select id="category">
               <option value="地域振興">地域振興</option>
               <option value="お店・仕事のPR">お店・仕事のPR</option>
@@ -587,28 +615,28 @@ pre{
             </select>
           </div>
 
-          <div class="field span2">
-            <label for="idea">何を形にしたいですか？</label>
+          <div class="formBlock wide">
+            <label class="title" for="idea">何を形にしたいですか？</label>
             <textarea id="idea" placeholder="例：地域の困りごとを相談できる案内ページを作りたい"></textarea>
           </div>
 
-          <div class="field">
-            <label for="target">誰のための企画ですか？</label>
+          <div class="formBlock">
+            <label class="title" for="target">誰のための企画ですか？</label>
             <textarea id="target" placeholder="例：高齢者、自治会、商店会、地域の親子など"></textarea>
           </div>
 
-          <div class="field">
-            <label for="problem">今、何に困っていますか？</label>
+          <div class="formBlock">
+            <label class="title" for="problem">今、何に困っていますか？</label>
             <textarea id="problem" placeholder="例：情報が分散していて、どこに相談すればいいか分かりにくい"></textarea>
           </div>
 
-          <div class="field">
-            <label for="benefit">それが解決すると、誰が喜びますか？</label>
+          <div class="formBlock">
+            <label class="title" for="benefit">それが解決すると、誰が喜びますか？</label>
             <textarea id="benefit" placeholder="例：地域の人、行政、支援団体、お店、参加者など"></textarea>
           </div>
 
-          <div class="field">
-            <label for="proposalTo">誰に見せたいですか？</label>
+          <div class="formBlock">
+            <label class="title" for="proposalTo">誰に見せたいですか？</label>
             <select id="proposalTo">
               <option value="自分用の整理">自分用の整理</option>
               <option value="行政">行政</option>
@@ -622,8 +650,8 @@ pre{
             </select>
           </div>
 
-          <div class="field">
-            <label for="moneyPlan">お金を集めたいですか？</label>
+          <div class="formBlock">
+            <label class="title" for="moneyPlan">お金を集めたいですか？</label>
             <select id="moneyPlan">
               <option value="まだ考えていない">まだ考えていない</option>
               <option value="無料で始めたい">無料で始めたい</option>
@@ -635,8 +663,8 @@ pre{
             </select>
           </div>
 
-          <div class="field">
-            <label for="firstGoal">最初に作りたいもの</label>
+          <div class="formBlock">
+            <label class="title" for="firstGoal">最初に作りたいもの</label>
             <select id="firstGoal">
               <option value="1ページの案内ページ">1ページの案内ページ</option>
               <option value="QRコードで見られるページ">QRコードで見られるページ</option>
@@ -649,42 +677,42 @@ pre{
             </select>
           </div>
 
-          <div class="field span2">
-            <div class="fieldTitle">必要そうな機能</div>
-            <div class="choiceGrid">
-              <label class="choice"><input type="checkbox" name="features" value="お知らせ表示">お知らせ表示</label>
-              <label class="choice"><input type="checkbox" name="features" value="地図・道案内">地図・道案内</label>
-              <label class="choice"><input type="checkbox" name="features" value="QRコード導線">QRコード導線</label>
-              <label class="choice"><input type="checkbox" name="features" value="写真・動画表示">写真・動画表示</label>
-              <label class="choice"><input type="checkbox" name="features" value="申し込みフォーム">申し込みフォーム</label>
-              <label class="choice"><input type="checkbox" name="features" value="記録・履歴">記録・履歴</label>
-              <label class="choice"><input type="checkbox" name="features" value="SNSシェア">SNSシェア</label>
-              <label class="choice"><input type="checkbox" name="features" value="クラファン案内">クラファン案内</label>
-              <label class="choice"><input type="checkbox" name="features" value="補助金・支援制度案内">補助金・支援制度案内</label>
-              <label class="choice"><input type="checkbox" name="features" value="管理画面">管理画面</label>
+          <div class="formBlock wide">
+            <h3>必要そうな機能</h3>
+            <div class="checkGrid">
+              <label class="checkItem"><input type="checkbox" name="features" value="お知らせ表示">お知らせ表示</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="地図・道案内">地図・道案内</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="QRコード導線">QRコード導線</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="写真・動画表示">写真・動画表示</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="申し込みフォーム">申し込みフォーム</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="記録・履歴">記録・履歴</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="SNSシェア">SNSシェア</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="クラファン案内">クラファン案内</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="補助金・支援制度案内">補助金・支援制度案内</label>
+              <label class="checkItem"><input type="checkbox" name="features" value="管理画面">管理画面</label>
             </div>
           </div>
 
-          <div class="field span2">
-            <div class="fieldTitle">ページの雰囲気</div>
-            <div class="choiceGrid">
-              <label class="choice"><input type="checkbox" name="moods" value="高級感">高級感</label>
-              <label class="choice"><input type="checkbox" name="moods" value="信頼感">信頼感</label>
-              <label class="choice"><input type="checkbox" name="moods" value="親しみやすい">親しみやすい</label>
-              <label class="choice"><input type="checkbox" name="moods" value="やさしい">やさしい</label>
-              <label class="choice"><input type="checkbox" name="moods" value="おしゃれ">おしゃれ</label>
-              <label class="choice"><input type="checkbox" name="moods" value="未来感">未来感</label>
-              <label class="choice"><input type="checkbox" name="moods" value="行政風">行政風</label>
-              <label class="choice"><input type="checkbox" name="moods" value="地域密着">地域密着</label>
-              <label class="choice"><input type="checkbox" name="moods" value="高齢者向け">高齢者向け</label>
-              <label class="choice"><input type="checkbox" name="moods" value="クラファン向け">クラファン向け</label>
-              <label class="choice"><input type="checkbox" name="moods" value="和風">和風</label>
-              <label class="choice"><input type="checkbox" name="moods" value="自然・公園風">自然・公園風</label>
+          <div class="formBlock wide">
+            <h3>ページの雰囲気</h3>
+            <div class="checkGrid">
+              <label class="checkItem"><input type="checkbox" name="moods" value="高級感">高級感</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="信頼感">信頼感</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="親しみやすい">親しみやすい</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="やさしい">やさしい</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="おしゃれ">おしゃれ</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="未来感">未来感</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="行政風">行政風</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="地域密着">地域密着</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="高齢者向け">高齢者向け</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="クラファン向け">クラファン向け</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="和風">和風</label>
+              <label class="checkItem"><input type="checkbox" name="moods" value="自然・公園風">自然・公園風</label>
             </div>
           </div>
 
-          <div class="field">
-            <label for="referenceStyle">近いイメージ</label>
+          <div class="formBlock">
+            <label class="title" for="referenceStyle">近いイメージ</label>
             <select id="referenceStyle">
               <option value="おまかせ">おまかせ</option>
               <option value="高級車のナビ画面風">高級車のナビ画面風</option>
@@ -699,8 +727,8 @@ pre{
             </select>
           </div>
 
-          <div class="field">
-            <label for="mainColor">使いたい色</label>
+          <div class="formBlock">
+            <label class="title" for="mainColor">使いたい色</label>
             <select id="mainColor">
               <option value="おまかせ">おまかせ</option>
               <option value="青系">青系</option>
@@ -712,8 +740,8 @@ pre{
             </select>
           </div>
 
-          <div class="field">
-            <label for="fontSize">文字の大きさ</label>
+          <div class="formBlock">
+            <label class="title" for="fontSize">文字の大きさ</label>
             <select id="fontSize">
               <option value="普通">普通</option>
               <option value="大きめ">大きめ</option>
@@ -721,8 +749,8 @@ pre{
             </select>
           </div>
 
-          <div class="field">
-            <label for="photoBalance">写真と文字のバランス</label>
+          <div class="formBlock">
+            <label class="title" for="photoBalance">写真と文字のバランス</label>
             <select id="photoBalance">
               <option value="写真と文字を半分ずつ">写真と文字を半分ずつ</option>
               <option value="写真中心">写真中心</option>
@@ -732,22 +760,25 @@ pre{
 
         </div>
 
-        <div class="btnArea">
-          <button class="btn btnMain" type="button" onclick="generate()">DX設計シートを作る</button>
-          <button class="btn btnSub" type="button" onclick="sampleFill()">サンプル入力</button>
-          <button class="btn btnGhost" type="button" onclick="clearForm()">クリア</button>
+        <div class="actions">
+          <button class="btn btnMain" type="button" onclick="generateDX()">DX設計シートを作る</button>
+          <button class="btn btnSub" type="button" onclick="fillSample()">サンプル入力</button>
+          <button class="btn btnGray" type="button" onclick="clearForm()">クリア</button>
         </div>
       </form>
     </section>
 
-    <section id="result" class="section result">
-      <h2 class="sectionTitle">生成結果</h2>
-      <p class="sectionLead">必要なところをコピーして、AIやドキュメントに貼り付けてください。</p>
-      <p id="copyNotice" class="copyNotice">コピーしました。</p>
+    <section id="resultArea" class="resultArea">
+      <div class="resultHeader">
+        <h2>生成結果</h2>
+        <p>必要なところをコピーして、AIやドキュメントに貼り付けてください。</p>
+      </div>
+
+      <div class="notice" id="copyNotice">コピーしました。</div>
 
       <div class="resultGrid">
         <div class="outputCard">
-          <div class="outputHead">
+          <div class="outputTop">
             <h3>DX設計シート</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('sheetOutput')">コピー</button>
           </div>
@@ -755,7 +786,7 @@ pre{
         </div>
 
         <div class="outputCard">
-          <div class="outputHead">
+          <div class="outputTop">
             <h3>企画書たたき台</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('proposalOutput')">コピー</button>
           </div>
@@ -763,15 +794,15 @@ pre{
         </div>
 
         <div class="outputCard">
-          <div class="outputHead">
+          <div class="outputTop">
             <h3>制作手順</h3>
-            <button class="btn btnCopy" type="button" onclick="copyText('stepOutput')">コピー</button>
+            <button class="btn btnCopy" type="button" onclick="copyText('roadmapOutput')">コピー</button>
           </div>
-          <pre id="stepOutput"></pre>
+          <pre id="roadmapOutput"></pre>
         </div>
 
         <div class="outputCard">
-          <div class="outputHead">
+          <div class="outputTop">
             <h3>AIに渡す制作指示文</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('aiPromptOutput')">コピー</button>
           </div>
@@ -779,7 +810,7 @@ pre{
         </div>
 
         <div class="outputCard">
-          <div class="outputHead">
+          <div class="outputTop">
             <h3>デザイン指示文</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('designOutput')">コピー</button>
           </div>
@@ -787,15 +818,15 @@ pre{
         </div>
 
         <div class="outputCard">
-          <div class="outputHead">
+          <div class="outputTop">
             <h3>補助金・GCF・クラファン向き診断</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('fundingOutput')">コピー</button>
           </div>
           <pre id="fundingOutput"></pre>
         </div>
 
-        <div class="outputCard wide">
-          <div class="outputHead">
+        <div class="outputCard outputCardFull">
+          <div class="outputTop">
             <h3>全部まとめた文章</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('allOutput')">全部コピー</button>
           </div>
@@ -818,17 +849,23 @@ function val(id){
   return el ? String(el.value || "").trim() : "";
 }
 
+function setVal(id,value){
+  const el = document.getElementById(id);
+  if(el){
+    el.value = value;
+  }
+}
+
 function checkedValues(name){
   return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function(el){
     return el.value;
   });
 }
 
-function setVal(id,value){
-  const el = document.getElementById(id);
-  if(el){
-    el.value = value;
-  }
+function setChecks(name,values){
+  document.querySelectorAll('input[name="' + name + '"]').forEach(function(el){
+    el.checked = values.includes(el.value);
+  });
 }
 
 function textOrDefault(text,fallback){
@@ -839,6 +876,7 @@ function listText(arr,fallback){
   if(!arr || arr.length === 0){
     return fallback;
   }
+
   return arr.map(function(v){
     return "・" + v;
   }).join("\n");
@@ -1127,6 +1165,13 @@ function designPrompt(moods,referenceStyle,mainColor,fontSize,photoBalance){
   return parts.join("\n");
 }
 
+function setText(id,text){
+  const el = document.getElementById(id);
+  if(el){
+    el.textContent = text;
+  }
+}
+
 function buildOutputs(){
   const projectName = val("projectName");
   const category = val("category");
@@ -1149,9 +1194,8 @@ function buildOutputs(){
   const safeTarget = textOrDefault(target,"地域の人、利用者、関係者");
   const safeProblem = textOrDefault(problem,"情報が分かりにくく、次に何をすればよいか見えにくい。");
   const safeBenefit = textOrDefault(benefit,"困っている人、支援する人、地域の関係者");
-  const featureText = listText(features,"・まずは説明ページ\n・問い合わせ導線\n・スマホで見やすい構成");
-  const moodText = listText(moods,"・信頼感\n・親しみやすい\n・地域密着");
 
+  const featureText = listText(features,"・まずは説明ページ\n・問い合わせ導線\n・スマホで見やすい構成");
   const minimum = recommendMinimum(features,firstGoal);
   const later = recommendLater(features);
   const funding = fundingDiagnosis(category,moneyPlan,proposalTo,features);
@@ -1239,7 +1283,7 @@ function buildOutputs(){
     funding
   ].join("\n");
 
-  const steps = [
+  const roadmap = [
     "【制作手順】",
     "",
     "1. 企画名と一言説明を決める",
@@ -1326,6 +1370,12 @@ function buildOutputs(){
     "・地域活動や支援企画でも安心して見られる雰囲気にする"
   ].join("\n");
 
+  const fundingText = [
+    "【補助金・GCF・クラファン向き診断】",
+    "",
+    funding
+  ].join("\n");
+
   const all = [
     sheet,
     "",
@@ -1335,7 +1385,7 @@ function buildOutputs(){
     "",
     "------------------------------",
     "",
-    steps,
+    roadmap,
     "",
     "------------------------------",
     "",
@@ -1347,54 +1397,39 @@ function buildOutputs(){
     "",
     "------------------------------",
     "",
-    "【補助金・GCF・クラファン向き診断】",
-    "",
-    funding
+    fundingText
   ].join("\n");
 
   return {
     sheet:sheet,
     proposal:proposal,
-    steps:steps,
+    roadmap:roadmap,
     aiPrompt:aiPrompt,
     designText:designText,
-    funding:funding,
+    fundingText:fundingText,
     all:all
   };
 }
 
-function setText(id,text){
-  const el = document.getElementById(id);
-  if(el){
-    el.textContent = text;
-  }
-}
-
-function generate(){
+function generateDX(){
   const outputs = buildOutputs();
 
   setText("sheetOutput",outputs.sheet);
   setText("proposalOutput",outputs.proposal);
-  setText("stepOutput",outputs.steps);
+  setText("roadmapOutput",outputs.roadmap);
   setText("aiPromptOutput",outputs.aiPrompt);
   setText("designOutput",outputs.designText);
-  setText("fundingOutput",outputs.funding);
+  setText("fundingOutput",outputs.fundingText);
   setText("allOutput",outputs.all);
 
-  const result = document.getElementById("result");
-  if(result){
-    result.classList.add("show");
-    result.scrollIntoView({behavior:"smooth",block:"start"});
+  const resultArea = document.getElementById("resultArea");
+  if(resultArea){
+    resultArea.classList.add("show");
+    resultArea.scrollIntoView({behavior:"smooth",block:"start"});
   }
 }
 
-function setChecks(name,values){
-  document.querySelectorAll('input[name="' + name + '"]').forEach(function(el){
-    el.checked = values.includes(el.value);
-  });
-}
-
-function sampleFill(){
+function fillSample(){
   setVal("projectName","志木お助けナビ");
   setVal("category","高齢者支援・福祉");
   setVal("idea","地域の困りごとを、スマホから分かりやすく相談・案内できるページにしたい。");
@@ -1425,7 +1460,7 @@ function sampleFill(){
     "高齢者向け"
   ]);
 
-  generate();
+  generateDX();
 }
 
 function clearForm(){
@@ -1437,7 +1472,7 @@ function clearForm(){
   [
     "sheetOutput",
     "proposalOutput",
-    "stepOutput",
+    "roadmapOutput",
     "aiPromptOutput",
     "designOutput",
     "fundingOutput",
@@ -1446,9 +1481,9 @@ function clearForm(){
     setText(id,"");
   });
 
-  const result = document.getElementById("result");
-  if(result){
-    result.classList.remove("show");
+  const resultArea = document.getElementById("resultArea");
+  if(resultArea){
+    resultArea.classList.remove("show");
   }
 
   const notice = document.getElementById("copyNotice");
@@ -1476,6 +1511,7 @@ function fallbackCopy(text){
   area.setAttribute("readonly","");
   area.style.position = "fixed";
   area.style.left = "-9999px";
+  area.style.top = "0";
   document.body.appendChild(area);
   area.select();
 
