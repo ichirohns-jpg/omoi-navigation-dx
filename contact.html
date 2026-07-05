@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>相談・作成依頼｜想いを形にするナビゲーションDX</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  background:
+    radial-gradient(circle at top,#1f4f73 0,#0b1220 38%,#05070d 100%);
+  color:#fff;
+  line-height:1.75;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+  font-family:inherit;
+}
+
+.wrap{
+  width:min(1100px,94%);
+  margin:0 auto;
+  padding:18px 0 70px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:16px 0;
+}
+
+.logo{
+  font-weight:900;
+  letter-spacing:.04em;
+  font-size:18px;
+}
+
+.nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.nav a{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  color:#e5e7eb;
+  font-size:14px;
+  font-weight:800;
+}
+
+.hero{
+  text-align:center;
+  padding:34px 16px 30px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid rgba(250,204,21,.4);
+  border-radius:999px;
+  background:rgba(250,204,21,.14);
+  color:#fef9c3;
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(30px,7vw,56px);
+  line-height:1.16;
+  font-weight:900;
+}
+
+.hero h1 span{
+  display:block;
+  color:#facc15;
+}
+
+.hero p{
+  max-width:820px;
+  margin:18px auto 0;
+  color:#e5e7eb;
+  font-size:clamp(16px,4vw,21px);
+  font-weight:800;
+}
+
+.card{
+  background:rgba(255,255,255,.95);
+  color:#111827;
+  border-radius:28px;
+  padding:24px;
+  margin:18px 0;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.22);
+}
+
+.card.dark{
+  background:rgba(15,23,42,.94);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.14);
+}
+
+.card.gold{
+  background:
+    linear-gradient(135deg,rgba(250,204,21,.98),rgba(249,115,22,.96));
+  color:#111827;
+}
+
+.card h2{
+  margin:0 0 14px;
+  font-size:clamp(24px,5vw,34px);
+  line-height:1.3;
+}
+
+.card h3{
+  margin:24px 0 10px;
+  font-size:20px;
+}
+
+.lead{
+  font-size:18px;
+  font-weight:800;
+  color:#374151;
+  margin:0 0 18px;
+}
+
+.dark .lead{
+  color:#d1d5db;
+}
+
+.formBlock{
+  margin:18px 0;
+  padding:18px;
+  border-radius:22px;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+
+label.title{
+  display:block;
+  font-weight:900;
+  color:#111827;
+  margin-bottom:8px;
+  font-size:17px;
+}
+
+input[type="text"],
+textarea,
+select{
+  width:100%;
+  border:2px solid #d1d5db;
+  border-radius:16px;
+  padding:14px;
+  font-size:16px;
+  background:#fff;
+  color:#111827;
+  outline:none;
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 4px rgba(37,99,235,.14);
+}
+
+.help{
+  font-size:13px;
+  color:#6b7280;
+  margin-top:6px;
+}
+
+.checkGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+
+.checkItem{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 12px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.checkItem input{
+  width:20px;
+  height:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.item{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:20px;
+  padding:18px;
+}
+
+.dark .item{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+}
+
+.item h3{
+  margin:0 0 8px;
+  font-size:19px;
+}
+
+.item p{
+  margin:0;
+}
+
+.price{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:#fef3c7;
+  color:#92400e;
+  font-weight:900;
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:22px;
+}
+
+.btn{
+  border:0;
+  display:block;
+  text-align:center;
+  border-radius:18px;
+  padding:16px 18px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.18s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.04);
+}
+
+.btnMain{
+  background:linear-gradient(135deg,#facc15,#f97316);
+  color:#111827;
+}
+
+.btnSub{
+  background:#1d4ed8;
+  color:#fff;
+}
+
+.btnGray{
+  background:#e5e7eb;
+  color:#111827;
+}
+
+.btnDark{
+  background:#111827;
+  color:#fff;
+}
+
+.resultArea{
+  display:none;
+  margin-top:20px;
+}
+
+.outputCard{
+  margin:16px 0;
+  background:#fff;
+  color:#111827;
+  border-radius:24px;
+  padding:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+
+.outputTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.outputTop h3{
+  margin:0;
+  font-size:20px;
+}
+
+pre{
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  color:#111827;
+  border-radius:18px;
+  padding:16px;
+  font-size:15px;
+  line-height:1.75;
+  margin:0;
+}
+
+.notice{
+  background:rgba(34,197,94,.14);
+  border:1px solid rgba(34,197,94,.35);
+  color:#dcfce7;
+  border-radius:20px;
+  padding:16px;
+  font-weight:800;
+  margin:20px 0;
+}
+
+.bigPhrase{
+  font-size:clamp(22px,5vw,32px);
+  font-weight:900;
+  line-height:1.45;
+  margin:8px 0;
+}
+
+.footer{
+  text-align:center;
+  color:#cbd5e1;
+  padding:28px 0 0;
+  font-size:14px;
+}
+
+@media (min-width:800px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .actions{
+    grid-template-columns:2fr 1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <header class="header">
+    <div class="logo">想いを形にするDX</div>
+    <nav class="nav">
+      <a href="index.html">診断ページ</a>
+      <a href="about.html">このDXについて</a>
+      <a href="#request">相談文作成</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="badge">相談・作成依頼</div>
+    <h1>
+      あなたの想いを
+      <span>使える形にします</span>
+    </h1>
+    <p>
+      地域活動、お店のPR、イベント告知、クラウドファンディング準備、提案書づくり。
+      まずは相談内容を整理して、作成依頼文としてコピーできます。
+    </p>
+  </section>
+
+  <section class="card gold">
+    <h2>まずは小さく形にする</h2>
+    <div class="bigPhrase">
+      いきなり大きなシステムではなく、<br>
+      1ページDXから始めます。
+    </div>
+    <p>
+      最初は、スマホで見られる案内ページ、QRコード導線、SNS告知文、企画書たたき台など、
+      すぐに試せる最小版を作ります。
+      反応を見ながら、必要な機能を一つずつ追加して育てていきます。
+    </p>
+  </section>
+
+  <section class="card dark">
+    <h2>作成代行メニュー</h2>
+    <p class="lead">
+      内容に合わせて、最小版から本格DXまで対応します。
+    </p>
+
+    <div class="grid">
+      <div class="item">
+        <h3>企画整理コース</h3>
+        <p>
+          ヒアリング内容をもとに、DX設計シートと企画書たたき台を作成します。
+        </p>
+        <div class="price">5,000円〜15,000円</div>
+      </div>
+
+      <div class="item">
+        <h3>1ページDX作成コース</h3>
+        <p>
+          スマホで見られる案内ページ、QRコード導線、SNS投稿文を作成します。
+        </p>
+        <div class="price">20,000円〜50,000円</div>
+      </div>
+
+      <div class="item">
+        <h3>本格DX作成コース</h3>
+        <p>
+          お知らせ、フォーム、画像・動画表示、Googleスプレッドシート連携などを作成します。
+        </p>
+        <div class="price">50,000円〜150,000円</div>
+      </div>
+
+      <div class="item">
+        <h3>クラファン・提案書コース</h3>
+        <p>
+          提案書、クラウドファンディング本文、支援メニュー、告知文を作成します。
+        </p>
+        <div class="price">30,000円〜100,000円</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="request" class="card">
+    <h2>相談内容を整理する</h2>
+    <p class="lead">
+      入力すると、相談・作成依頼に使える文章を自動で作ります。
+    </p>
+
+    <div class="formBlock">
+      <label class="title" for="name">お名前・活動名</label>
+      <input id="name" type="text" placeholder="例：山口 貞一郎／〇〇商店／〇〇自治会">
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="projectTitle">作りたいもの・企画名</label>
+      <input id="projectTitle" type="text" placeholder="例：地域イベント告知ページ／お店PRページ／クラファン準備ページ">
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="purpose">何を実現したいですか？</label>
+      <textarea id="purpose" placeholder="例：地域のイベント情報をスマホで見やすく届けたい。QRコードからすぐ見られるページを作りたい。"></textarea>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="target">誰に届けたいですか？</label>
+      <input id="target" type="text" placeholder="例：地域住民、高齢者、来店客、イベント参加者、支援者">
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="problem">今、困っていること</label>
+      <textarea id="problem" placeholder="例：情報がSNSやチラシに分かれていて、必要な人に届きにくい。"></textarea>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="course">相談したい内容</label>
+      <select id="course">
+        <option value="企画整理コース">企画整理コース</option>
+        <option value="1ページDX作成コース">1ページDX作成コース</option>
+        <option value="本格DX作成コース">本格DX作成コース</option>
+        <option value="クラファン・提案書コース">クラファン・提案書コース</option>
+        <option value="まだ分からないので相談したい">まだ分からないので相談したい</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <h3>作りたいもの</h3>
+      <div class="checkGrid">
+        <label class="checkItem"><input type="checkbox" name="want" value="1ページ案内ページ">1ページ案内ページ</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="QRコード導線">QRコード導線</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="SNS投稿文">SNS投稿文</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="企画書たたき台">企画書たたき台</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="提案書PDF">提案書PDF</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="お知らせページ">お知らせページ</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="申し込みフォーム">申し込みフォーム</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="写真・動画表示">写真・動画表示</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="Googleスプレッドシート連携">スプレッドシート連携</label>
+        <label class="checkItem"><input type="checkbox" name="want" value="クラウドファンディング本文">クラファン本文</label>
+      </div>
+    </div>
+
+    <div class="formBlock">
+      <h3>希望する雰囲気</h3>
+      <div class="checkGrid">
+        <label class="checkItem"><input type="checkbox" name="mood" value="高級感">高級感</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="信頼感">信頼感</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="親しみやすい">親しみやすい</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="やさしい">やさしい</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="行政風">行政風</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="地域密着">地域密着</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="高齢者向け">高齢者向け</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="クラファン向け">クラファン向け</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="和風">和風</label>
+        <label class="checkItem"><input type="checkbox" name="mood" value="未来感">未来感</label>
+      </div>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="budget">予算感</label>
+      <select id="budget">
+        <option value="まだ未定">まだ未定</option>
+        <option value="5,000円〜15,000円">5,000円〜15,000円</option>
+        <option value="20,000円〜50,000円">20,000円〜50,000円</option>
+        <option value="50,000円〜150,000円">50,000円〜150,000円</option>
+        <option value="150,000円以上も相談">150,000円以上も相談</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="deadline">希望時期</label>
+      <select id="deadline">
+        <option value="急ぎではない">急ぎではない</option>
+        <option value="できれば数日以内">できれば数日以内</option>
+        <option value="1週間以内">1週間以内</option>
+        <option value="今月中">今月中</option>
+        <option value="イベント日までに必要">イベント日までに必要</option>
+      </select>
+    </div>
+
+    <div class="formBlock">
+      <label class="title" for="message">補足・伝えたいこと</label>
+      <textarea id="message" placeholder="例：スマホで見やすくしたい。高齢者にも分かりやすくしたい。チラシのQRコードから見られるようにしたい。"></textarea>
+    </div>
+
+    <div class="actions">
+      <button class="btn btnMain" onclick="makeRequest()">相談文を作る</button>
+      <button class="btn btnSub" onclick="fillSample()">サンプル入力</button>
+      <button class="btn btnGray" onclick="clearForm()">クリア</button>
+    </div>
+  </section>
+
+  <section id="resultArea" class="resultArea">
+
+    <div class="notice" id="copyNotice" style="display:none;">
+      コピーしました。
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>相談・作成依頼文</h3>
+        <button class="btn btnDark" onclick="copyText('requestOutput')">コピー</button>
+      </div>
+      <pre id="requestOutput"></pre>
+    </div>
+
+    <div class="outputCard">
+      <div class="outputTop">
+        <h3>制作前チェックリスト</h3>
+        <button class="btn btnDark" onclick="copyText('checkOutput')">コピー</button>
+      </div>
+      <pre id="checkOutput"></pre>
+    </div>
+
+  </section>
+
+  <section class="card dark">
+    <h2>相談の送り方</h2>
+    <p class="lead">
+      作成された相談文をコピーして、メール・LINE・SNSなどに貼って送ってください。
+    </p>
+
+    <div class="grid">
+      <div class="item">
+        <h3>1. 相談文を作る</h3>
+        <p>上の入力欄に内容を入れて、相談文を作ります。</p>
+      </div>
+
+      <div class="item">
+        <h3>2. コピーする</h3>
+        <p>作成された文章をコピーします。</p>
+      </div>
+
+      <div class="item">
+        <h3>3. メールやSNSで送る</h3>
+        <p>お使いの連絡方法に貼り付けて送信します。</p>
+      </div>
+
+      <div class="item">
+        <h3>4. 最小版から作る</h3>
+        <p>まずは1ページDXなど、小さく動く形から始めます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card gold">
+    <h2>大事な考え方</h2>
+    <div class="bigPhrase">
+      まず動く形にする。<br>
+      反応を見て、育てる。
+    </div>
+    <p>
+      完璧なシステムを最初から作るのではなく、
+      1ページ、QRコード、SNS投稿、企画書など、
+      すぐに使える形から始めることを大切にします。
+    </p>
+  </section>
+
+  <footer class="footer">
+    想いを形にするナビゲーションDX<br>
+    相談・作成依頼ページ
+  </footer>
+
+</div>
+
+<script>
+function val(id){
+  const el = document.getElementById(id);
+  return el ? String(el.value || "").trim() : "";
+}
+
+function checkedValues(name){
+  return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked'))
+    .map(el => el.value);
+}
+
+function listText(arr, fallback){
+  if(!arr || arr.length === 0){
+    return fallback;
+  }
+  return arr.map(v => "・" + v).join("\n");
+}
+
+function makeRequest(){
+  const name = val("name") || "未入力";
+  const projectTitle = val("projectTitle") || "未定";
+  const purpose = val("purpose") || "まだ整理中";
+  const target = val("target") || "未定";
+  const problem = val("problem") || "まだ整理中";
+  const course = val("course");
+  const budget = val("budget");
+  const deadline = val("deadline");
+  const message = val("message") || "特になし";
+
+  const want = checkedValues("want");
+  const mood = checkedValues("mood");
+
+  const requestText = [
+    "【DX作成相談・依頼】",
+    "",
+    "お名前・活動名：",
+    name,
+    "",
+    "作りたいもの・企画名：",
+    projectTitle,
+    "",
+    "実現したいこと：",
+    purpose,
+    "",
+    "届けたい相手：",
+    target,
+    "",
+    "今、困っていること：",
+    problem,
+    "",
+    "相談したい内容：",
+    course,
+    "",
+    "作りたいもの：",
+    listText(want, "・まだ決まっていないので相談したい"),
+    "",
+    "希望する雰囲気：",
+    listText(mood, "・おまかせ"),
+    "",
+    "予算感：",
+    budget,
+    "",
+    "希望時期：",
+    deadline,
+    "",
+    "補足・伝えたいこと：",
+    message,
+    "",
+    "まずは、最小版でどこまで作れるか相談したいです。",
+    "よろしくお願いします。"
+  ].join("\n");
+
+  const checkText = [
+    "【制作前チェックリスト】",
+    "",
+    "1. 最初に作るもの",
+    "・" + projectTitle,
+    "",
+    "2. 最小版で優先すること",
+    "・スマホで見やすいこと",
+    "・内容がすぐ伝わること",
+    "・QRコードやSNSで届けやすいこと",
+    "・最初から全部作らないこと",
+    "",
+    "3. 必要になりそうな素材",
+    "・タイトル",
+    "・説明文",
+    "・写真または画像",
+    "・地図や住所",
+    "・問い合わせ先",
+    "・SNSや動画のURL",
+    "・公開したい日程",
+    "",
+    "4. 後から追加する可能性があるもの",
+    "・お知らせ更新",
+    "・申し込みフォーム",
+    "・Googleスプレッドシート連携",
+    "・PDF提案書",
+    "・SNS投稿文",
+    "・クラウドファンディング本文",
+    "",
+    "5. 制作ルール",
+    "・まず1ページで作る",
+    "・動いたところは壊さない",
+    "・追加機能は1つずつ入れる",
+    "・スマホ確認を優先する"
+  ].join("\n");
+
+  document.getElementById("requestOutput").textContent = requestText;
+  document.getElementById("checkOutput").textContent = checkText;
+  document.getElementById("resultArea").style.display = "block";
+
+  document.getElementById("resultArea").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+async function copyText(id){
+  const text = document.getElementById(id).textContent;
+
+  try{
+    await navigator.clipboard.writeText(text);
+    showCopyNotice();
+  }catch(e){
+    const temp = document.createElement("textarea");
+    temp.value = text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+    showCopyNotice();
+  }
+}
+
+function showCopyNotice(){
+  const notice = document.getElementById("copyNotice");
+  notice.style.display = "block";
+
+  setTimeout(function(){
+    notice.style.display = "none";
+  },1800);
+}
+
+function fillSample(){
+  document.getElementById("name").value = "〇〇商店";
+  document.getElementById("projectTitle").value = "お店の魅力を届けるPRページ";
+  document.getElementById("purpose").value = "お店の情報、写真、メニュー、アクセスをスマホで見やすく届けたい。チラシやSNSからQRコードで見られるようにしたい。";
+  document.getElementById("target").value = "近隣のお客様、常連客、新しく来店する人";
+  document.getElementById("problem").value = "SNSだけでは情報が流れてしまい、お店の基本情報や魅力がまとまって伝わりにくい。";
+  document.getElementById("course").value = "1ページDX作成コース";
+  document.getElementById("budget").value = "20,000円〜50,000円";
+  document.getElementById("deadline").value = "1週間以内";
+  document.getElementById("message").value = "写真を大きく見せたいです。スマホで見やすく、親しみやすい雰囲気にしたいです。";
+
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+
+  ["1ページ案内ページ","QRコード導線","SNS投稿文","写真・動画表示"].forEach(value => {
+    const el = Array.from(document.querySelectorAll('input[name="want"]'))
+      .find(input => input.value === value);
+    if(el){ el.checked = true; }
+  });
+
+  ["親しみやすい","おしゃれ","地域密着"].forEach(value => {
+    const el = Array.from(document.querySelectorAll('input[name="mood"]'))
+      .find(input => input.value === value);
+    if(el){ el.checked = true; }
+  });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function clearForm(){
+  if(!confirm("入力内容をクリアしますか？")){
+    return;
+  }
+
+  document.querySelectorAll("input[type='text'], textarea").forEach(el => {
+    el.value = "";
+  });
+
+  document.querySelectorAll("select").forEach(el => {
+    el.selectedIndex = 0;
+  });
+
+  document.querySelectorAll("input[type='checkbox']").forEach(el => {
+    el.checked = false;
+  });
+
+  document.getElementById("resultArea").style.display = "none";
+}
+</script>
+
+</body>
+</html>
