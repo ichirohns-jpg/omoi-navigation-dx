@@ -787,6 +787,14 @@ pre{
 
         <div class="outputCard">
           <div class="outputTop">
+            <h3>あなたにおすすめのDX</h3>
+            <button class="btn btnCopy" type="button" onclick="copyText('recommendOutput')">コピー</button>
+          </div>
+          <pre id="recommendOutput"></pre>
+        </div>
+
+        <div class="outputCard">
+          <div class="outputTop">
             <h3>企画書たたき台</h3>
             <button class="btn btnCopy" type="button" onclick="copyText('proposalOutput')">コピー</button>
           </div>
@@ -1165,6 +1173,379 @@ function designPrompt(moods,referenceStyle,mainColor,fontSize,photoBalance){
   return parts.join("\n");
 }
 
+function containsAny(text,words){
+  return words.some(function(word){
+    return text.indexOf(word) !== -1;
+  });
+}
+
+function makeStars(score){
+  if(score >= 9){
+    return "★★★★★";
+  }
+
+  if(score >= 6){
+    return "★★★★☆";
+  }
+
+  return "★★★☆☆";
+}
+
+function buildRecommendDX(category,idea,target,problem,benefit,proposalTo,moneyPlan,firstGoal,features){
+  const allText = [
+    category,
+    idea,
+    target,
+    problem,
+    benefit,
+    proposalTo,
+    moneyPlan,
+    firstGoal,
+    features.join(" ")
+  ].join(" ");
+
+  const candidates = [
+    {
+      name:"デジタル町内会DX",
+      score:0,
+      keywords:["町内会","自治会","回覧","回覧板","会費","徴収","集金","避難","防災","地域住民"],
+      featureBonus:["お知らせ表示","QRコード導線","地図・道案内"],
+      categories:["防災"],
+      reason:[
+        "町内会や自治会の情報共有をスマホで見られるようにできる。",
+        "回覧板、会費案内、避難経路などを一つの入口にまとめられる。",
+        "役員の高齢化による負担軽減につながる。"
+      ],
+      minimum:[
+        "町内会トップページ",
+        "デジタル回覧板",
+        "QRコード導線",
+        "避難所・避難経路のGoogleマップリンク"
+      ],
+      next:[
+        "町内会費案内",
+        "お知らせ更新",
+        "災害時のお知らせ",
+        "安否確認やフォーム連携"
+      ],
+      proposal:"町内会、自治会、行政、防災担当"
+    },
+    {
+      name:"地域生活支援ナビDX",
+      score:0,
+      keywords:["高齢者","一人暮らし","福祉","介護","見守り","相談","困りごと","生活支援"],
+      featureBonus:["お知らせ表示","申し込みフォーム","QRコード導線"],
+      categories:["高齢者支援・福祉"],
+      reason:[
+        "困っている人が、必要な相談先や支援情報にたどり着きやすくなる。",
+        "高齢者や家族向けに、分かりやすい案内ページを作れる。",
+        "地域の支援団体や行政窓口への導線を整理できる。"
+      ],
+      minimum:[
+        "相談先案内ページ",
+        "困りごと別メニュー",
+        "電話・地図・問い合わせ導線"
+      ],
+      next:[
+        "見守り機能",
+        "家族共有",
+        "地域支援制度の案内",
+        "相談記録の整理"
+      ],
+      proposal:"行政、地域包括支援センター、福祉団体、自治会"
+    },
+    {
+      name:"かっぱナビ・まち歩きDX",
+      score:0,
+      keywords:["かっぱ","河童","像巡り","巡り","観光","まち歩き","マップ","商工会","散策","スタンプラリー"],
+      featureBonus:["地図・道案内","QRコード導線","写真・動画表示","SNSシェア"],
+      categories:["観光案内","地域振興","イベント告知"],
+      reason:[
+        "紙のマップにQRコードを組み合わせて、体験型のまち歩きにできる。",
+        "Googleマップで次の目的地まで案内できる。",
+        "動画やお知らせを入れることで、商店街回遊にもつなげられる。"
+      ],
+      minimum:[
+        "かっぱ紹介ページ",
+        "次の目的地へのGoogleマップリンク",
+        "YouTube動画リンク",
+        "商工会や地域のお知らせ"
+      ],
+      next:[
+        "デジタルスタンプ",
+        "おすすめ店舗紹介",
+        "季節イベント連動",
+        "SNS投稿キャンペーン"
+      ],
+      proposal:"商工会、指定管理者、観光担当、商店会"
+    },
+    {
+      name:"補助金・GCFナビDX",
+      score:0,
+      keywords:["補助金","助成金","GCF","ガバメントクラウドファンディング","支援制度","申請","制度","資金"],
+      featureBonus:["補助金・支援制度案内","クラファン案内"],
+      categories:["補助金・GCF"],
+      reason:[
+        "利用者に制度を探させるのではなく、企画内容に合う支援制度の方向性を届けられる。",
+        "補助金、GCF、クラウドファンディング向きかを整理できる。",
+        "申請書や企画案のたたき台づくりにつなげられる。"
+      ],
+      minimum:[
+        "Q&Aによる支援制度の方向性診断",
+        "おすすめ制度の候補表示",
+        "次に相談する窓口の案内"
+      ],
+      next:[
+        "申請書たたき台作成",
+        "GCF本文作成",
+        "必要書類チェック",
+        "市役所・商工会への相談導線"
+      ],
+      proposal:"行政、商工会、NPO、地域団体"
+    },
+    {
+      name:"お店PR・商店街回遊DX",
+      score:0,
+      keywords:["お店","店舗","商店","商店街","集客","PR","ランチ","カフェ","飲食","紹介"],
+      featureBonus:["写真・動画表示","SNSシェア","地図・道案内","QRコード導線"],
+      categories:["お店・仕事のPR","地域振興"],
+      reason:[
+        "お店の魅力をスマホで分かりやすく伝えられる。",
+        "写真、動画、地図、SNS投稿を組み合わせて来店につなげられる。",
+        "商店街や地域回遊企画にも展開しやすい。"
+      ],
+      minimum:[
+        "お店紹介ページ",
+        "写真・動画",
+        "Googleマップ",
+        "SNS投稿文"
+      ],
+      next:[
+        "クーポン",
+        "今日のおすすめ",
+        "商店街マップ",
+        "複数店舗の回遊企画"
+      ],
+      proposal:"お店、商店会、商工会、地域団体"
+    },
+    {
+      name:"イベント告知・参加ナビDX",
+      score:0,
+      keywords:["イベント","祭り","フェス","開催","参加","告知","募集","来場","予約"],
+      featureBonus:["お知らせ表示","申し込みフォーム","SNSシェア","QRコード導線"],
+      categories:["イベント告知"],
+      reason:[
+        "イベント情報を1ページにまとめ、QRコードやSNSから案内できる。",
+        "日時、場所、参加方法、地図、注意事項を分かりやすく整理できる。",
+        "申し込みフォームやお知らせ追加にも発展しやすい。"
+      ],
+      minimum:[
+        "イベント告知ページ",
+        "地図リンク",
+        "SNS投稿文",
+        "問い合わせ導線"
+      ],
+      next:[
+        "申し込みフォーム",
+        "参加者管理",
+        "当日のお知らせ",
+        "動画・写真レポート"
+      ],
+      proposal:"イベント主催者、商店会、自治会、指定管理者"
+    },
+    {
+      name:"空き家早期予防ナビDX",
+      score:0,
+      keywords:["空き家","実家","相続","家の管理","親の家","予防","管理","相談"],
+      featureBonus:["申し込みフォーム","補助金・支援制度案内","お知らせ表示"],
+      categories:["空き家対策"],
+      reason:[
+        "空き家になる前の相談やチェックを促せる。",
+        "実家管理、相続、家族共有、行政相談への導線を整理できる。",
+        "山口さんの志木モデルの考え方とも相性が良い。"
+      ],
+      minimum:[
+        "空き家予防チェックページ",
+        "相談先案内",
+        "家族で見る説明ページ"
+      ],
+      next:[
+        "チェックシート",
+        "家族共有",
+        "相談記録",
+        "行政・専門家への連携"
+      ],
+      proposal:"行政、地域包括支援センター、自治会、不動産関係者"
+    },
+    {
+      name:"地域パトロールDX",
+      score:0,
+      keywords:["パトロール","防犯","見回り","通学路","危険箇所","安全","防災","見守り"],
+      featureBonus:["地図・道案内","記録・履歴","お知らせ表示","写真・動画表示"],
+      categories:["防災"],
+      reason:[
+        "地域の安全情報を見える化できる。",
+        "危険箇所、見回り記録、お知らせを共有できる。",
+        "防災・防犯・通学路安全の活動に使いやすい。"
+      ],
+      minimum:[
+        "パトロール案内ページ",
+        "危険箇所の一覧",
+        "お知らせ",
+        "地図リンク"
+      ],
+      next:[
+        "投稿フォーム",
+        "写真記録",
+        "スプレッドシート連携",
+        "地域別の一覧表示"
+      ],
+      proposal:"自治会、防犯団体、学校、行政、防災担当"
+    },
+    {
+      name:"クラウドファンディング準備DX",
+      score:0,
+      keywords:["クラウドファンディング","クラファン","支援者","リターン","寄付","応援","資金調達"],
+      featureBonus:["クラファン案内","SNSシェア","写真・動画表示"],
+      categories:["クラウドファンディング"],
+      reason:[
+        "支援を集めるために必要な物語、目的、使い道を整理できる。",
+        "本文、支援メニュー、SNS投稿、動画シナリオに展開できる。",
+        "GCFや民間クラファンの準備にもつながる。"
+      ],
+      minimum:[
+        "クラファン企画書",
+        "支援理由の整理",
+        "使い道の説明",
+        "SNS投稿文"
+      ],
+      next:[
+        "リターン設計",
+        "動画シナリオ",
+        "支援者向けページ",
+        "進捗報告ページ"
+      ],
+      proposal:"地域団体、NPO、商工会、行政、支援者"
+    },
+    {
+      name:"1ページ案内DX",
+      score:1,
+      keywords:["案内","ページ","ホームページ","紹介","説明"],
+      featureBonus:["QRコード導線","お知らせ表示"],
+      categories:["その他"],
+      reason:[
+        "最小版として作りやすく、まず動く形にできる。",
+        "企画の目的、対象者、次の行動を1ページに整理できる。",
+        "あとから機能追加しやすい。"
+      ],
+      minimum:[
+        "トップ説明",
+        "目的",
+        "対象者",
+        "問い合わせ・地図・申し込みボタン"
+      ],
+      next:[
+        "お知らせ",
+        "フォーム",
+        "動画",
+        "SNS連携"
+      ],
+      proposal:"自分用、地域団体、商店、行政、支援者"
+    }
+  ];
+
+  candidates.forEach(function(item){
+    if(containsAny(allText,item.keywords)){
+      item.score += 5;
+    }
+
+    item.keywords.forEach(function(word){
+      if(allText.indexOf(word) !== -1){
+        item.score += 1;
+      }
+    });
+
+    if(item.categories.includes(category)){
+      item.score += 4;
+    }
+
+    item.featureBonus.forEach(function(feature){
+      if(features.includes(feature)){
+        item.score += 1;
+      }
+    });
+
+    if(moneyPlan === "補助金を使いたい" && item.name === "補助金・GCFナビDX"){
+      item.score += 4;
+    }
+
+    if(moneyPlan === "GCFを使いたい" && item.name === "補助金・GCFナビDX"){
+      item.score += 5;
+    }
+
+    if(moneyPlan === "クラウドファンディングを使いたい" && item.name === "クラウドファンディング準備DX"){
+      item.score += 5;
+    }
+
+    if(proposalTo === "商店会" && item.name === "お店PR・商店街回遊DX"){
+      item.score += 3;
+    }
+
+    if(proposalTo === "自治会" && item.name === "デジタル町内会DX"){
+      item.score += 3;
+    }
+
+    if(proposalTo === "行政" && (item.name === "補助金・GCFナビDX" || item.name === "地域生活支援ナビDX" || item.name === "空き家早期予防ナビDX")){
+      item.score += 2;
+    }
+  });
+
+  const ranked = candidates
+    .filter(function(item){
+      return item.score > 1;
+    })
+    .sort(function(a,b){
+      return b.score - a.score;
+    })
+    .slice(0,3);
+
+  if(ranked.length === 0){
+    ranked.push(candidates[candidates.length - 1]);
+  }
+
+  const lines = [];
+
+  lines.push("【あなたにおすすめのDX】");
+  lines.push("");
+  lines.push("今回の内容から見ると、まずは次のDXが向いています。");
+  lines.push("");
+
+  ranked.forEach(function(item,index){
+    lines.push((index + 1) + ". " + makeStars(item.score) + " " + item.name);
+    lines.push("");
+    lines.push("理由：");
+    lines.push(listText(item.reason,"・今回の企画と相性が良い"));
+    lines.push("");
+    lines.push("最小版で作るもの：");
+    lines.push(listText(item.minimum,"・1ページ案内ページ"));
+    lines.push("");
+    lines.push("次に追加するもの：");
+    lines.push(listText(item.next,"・お知らせ機能\n・フォーム\n・SNS連携"));
+    lines.push("");
+    lines.push("提案先：");
+    lines.push(item.proposal);
+    lines.push("");
+    lines.push("------------------------------");
+    lines.push("");
+  });
+
+  lines.push("最初の一歩：");
+  lines.push("まずは一番上のおすすめDXを、1ページの最小版として作るのが安全です。");
+  lines.push("動いたら、必要な機能だけを一つずつ追加して育てます。");
+
+  return lines.join("\n");
+}
+
 function setText(id,text){
   const el = document.getElementById(id);
   if(el){
@@ -1202,6 +1583,18 @@ function buildOutputs(){
   const screens = screenPlan(features,firstGoal);
   const data = dataPlan(features);
   const design = designPrompt(moods,referenceStyle,mainColor,fontSize,photoBalance);
+
+  const recommendText = buildRecommendDX(
+    category,
+    safeIdea,
+    safeTarget,
+    safeProblem,
+    safeBenefit,
+    proposalTo,
+    moneyPlan,
+    firstGoal,
+    features
+  );
 
   const sheet = [
     "【DX設計シート】",
@@ -1381,6 +1774,10 @@ function buildOutputs(){
     "",
     "------------------------------",
     "",
+    recommendText,
+    "",
+    "------------------------------",
+    "",
     proposal,
     "",
     "------------------------------",
@@ -1402,6 +1799,7 @@ function buildOutputs(){
 
   return {
     sheet:sheet,
+    recommendText:recommendText,
     proposal:proposal,
     roadmap:roadmap,
     aiPrompt:aiPrompt,
@@ -1415,6 +1813,7 @@ function generateDX(){
   const outputs = buildOutputs();
 
   setText("sheetOutput",outputs.sheet);
+  setText("recommendOutput",outputs.recommendText);
   setText("proposalOutput",outputs.proposal);
   setText("roadmapOutput",outputs.roadmap);
   setText("aiPromptOutput",outputs.aiPrompt);
@@ -1471,6 +1870,7 @@ function clearForm(){
 
   [
     "sheetOutput",
+    "recommendOutput",
     "proposalOutput",
     "roadmapOutput",
     "aiPromptOutput",
