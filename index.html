@@ -631,8 +631,8 @@ pre{
           </div>
 
           <div class="formBlock">
-            <label class="title" for="benefit">それが解決すると、誰が喜びますか？</label>
-            <textarea id="benefit" placeholder="例：地域の人、行政、支援団体、お店、参加者など"></textarea>
+            <label class="title" for="benefit">このDXができたあと、どうなってほしいですか？</label>
+            <textarea id="benefit" placeholder="例：町内会役員の負担が減り、住民がスマホから必要な情報を確認できる状態"></textarea>
           </div>
 
           <div class="formBlock">
@@ -908,7 +908,7 @@ function makeFutureVision(benefit){
     }
   }
 
-  return text + "が、必要な情報や手順に迷わずアクセスできる状態を目指す。";
+  return text + "。";
 }
 
 function generateName(projectName,category){
@@ -1595,7 +1595,7 @@ function buildOutputs(){
   const safeIdea = textOrDefault(idea,"まだ具体化前。質問に答えながら整理する。");
   const safeTarget = textOrDefault(target,"地域の人、利用者、関係者");
   const safeProblem = textOrDefault(problem,"情報が分かりにくく、次に何をすればよいか見えにくい。");
-  const safeBenefit = textOrDefault(benefit,"困っている人、支援する人、地域の関係者");
+  const safeBenefit = textOrDefault(benefit,"関係する人たちが、必要な情報や手順に迷わずアクセスできる状態");
   const futureVision = makeFutureVision(safeBenefit);
 
   const featureText = listText(features,"・まずは説明ページ\n・問い合わせ導線\n・スマホで見やすい構成");
@@ -1636,8 +1636,8 @@ function buildOutputs(){
     "今の困りごと：",
     safeProblem,
     "",
-    "解決すると喜ぶ人：",
-    safeBenefit,
+    "解決後の姿：",
+    futureVision,
     "",
     "見せたい相手：",
     proposalTo,
@@ -1856,7 +1856,7 @@ function fillSample(){
   setVal("idea","地域の困りごとを、スマホから分かりやすく相談・案内できるページにしたい。");
   setVal("target","高齢者、家族、地域の支援者、自治会、商店会");
   setVal("problem","困った時にどこへ相談すればいいか分からず、情報も紙や口頭に分散している。");
-  setVal("benefit","高齢者、家族、地域の支援者、相談を受ける人が喜ぶ。");
+  setVal("benefit","高齢者や家族が、困った時に相談先や支援情報をスマホからすぐ確認できる状態。");
   setVal("proposalTo","行政");
   setVal("moneyPlan","補助金を使いたい");
   setVal("firstGoal","QRコードで見られるページ");
