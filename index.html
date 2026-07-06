@@ -898,13 +898,13 @@ function makeFutureVision(benefit){
   const text = removeLastPeriod(benefit);
 
   if(!text){
-    return "関係する人たちが、必要な情報や手順に迷わずアクセスでき、負担が減る状態を目指す。";
+    return "関係する人たちが、必要な情報や手順に迷わずアクセスでき、負担が減る状態。";
   }
 
   if(text.indexOf("喜ぶ") !== -1){
     const people = text.replace(/が喜ぶ.*$/,"").replace(/喜ぶ.*$/,"");
     if(people){
-      return people + "が、必要な情報や手順に迷わずアクセスでき、負担が減る状態を目指す。";
+      return people + "が、必要な情報や手順に迷わずアクセスでき、負担が減る状態。";
     }
   }
 
