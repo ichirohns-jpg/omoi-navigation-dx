@@ -890,6 +890,27 @@ function listText(arr,fallback){
   }).join("\n");
 }
 
+function removeLastPeriod(text){
+  return String(text || "").trim().replace(/[。.!！?？]+$/,"");
+}
+
+function makeFutureVision(benefit){
+  const text = removeLastPeriod(benefit);
+
+  if(!text){
+    return "関係する人たちが、必要な情報や手順に迷わずアクセスでき、負担が減る状態を目指す。";
+  }
+
+  if(text.indexOf("喜ぶ") !== -1){
+    const people = text.replace(/が喜ぶ.*$/,"").replace(/喜ぶ.*$/,"");
+    if(people){
+      return people + "が、必要な情報や手順に迷わずアクセスでき、負担が減る状態を目指す。";
+    }
+  }
+
+  return text + "が、必要な情報や手順に迷わずアクセスできる状態を目指す。";
+}
+
 function generateName(projectName,category){
   if(projectName){
     return projectName;
@@ -1575,6 +1596,7 @@ function buildOutputs(){
   const safeTarget = textOrDefault(target,"地域の人、利用者、関係者");
   const safeProblem = textOrDefault(problem,"情報が分かりにくく、次に何をすればよいか見えにくい。");
   const safeBenefit = textOrDefault(benefit,"困っている人、支援する人、地域の関係者");
+  const futureVision = makeFutureVision(safeBenefit);
 
   const featureText = listText(features,"・まずは説明ページ\n・問い合わせ導線\n・スマホで見やすい構成");
   const minimum = recommendMinimum(features,firstGoal);
@@ -1655,7 +1677,7 @@ function buildOutputs(){
     safeTarget,
     "",
     "5. 解決後の姿",
-    safeBenefit + "が、必要な情報や手順に迷わずアクセスできる状態を目指す。",
+    futureVision,
     "",
     "6. 最初に作るもの",
     firstGoal,
@@ -1724,7 +1746,7 @@ function buildOutputs(){
     safeProblem,
     "",
     "解決後の姿：",
-    safeBenefit,
+    futureVision,
     "",
     "最初に作りたいもの：",
     firstGoal,
