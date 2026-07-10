@@ -27,6 +27,7 @@ https://ichirohns-jpg.github.io/omoi-navigation-dx/
 - AIに渡す制作指示文を作る
 - デザイン指示文を作る
 - 補助金・GCF・クラウドファンディング向きかを整理する
+- 実例集から近い企画を選べる
 - 相談・依頼用の文章を作る
 
 ---
@@ -84,6 +85,28 @@ https://ichirohns-jpg.github.io/omoi-navigation-dx/
 - 最初から大きなアプリにしない
 - 動いているところを壊さない
 - 必要なところから少しずつ改善する
+
+---
+
+### examples.html
+
+実例集ページです。
+
+主な内容：
+
+- 活動報告DX
+- お店PR DX
+- イベント案内DX
+- まち歩きDX
+- 空き家予防DX
+- GCF・支援募集DX
+
+役割：
+
+- 何が作れるかを分かりやすく見せる
+- 近い実例から自分の企画に置き換えられるようにする
+- 診断ページへ進む前の参考ページにする
+- 相談相手にも見せやすい説明ページにする
 
 ---
 
@@ -146,6 +169,14 @@ https://ichirohns-jpg.github.io/omoi-navigation-dx/
 - まち歩きイベントページ
 - 出店者紹介ページ
 
+### 観光・まち歩き向け
+
+- カッパ像めぐりDX
+- 神社めぐりDX
+- 公園案内DX
+- デジタルスタンプラリー
+- 推し投票・ランキングページ
+
 ### 提案・資金集め向け
 
 - 企画書たたき台
@@ -188,13 +219,12 @@ https://ichirohns-jpg.github.io/omoi-navigation-dx/
 
 ## 現在の主なファイル
 
-```text
-index.html
-about.html
-contact.html
-README.md
-images/
-```
+- index.html
+- about.html
+- examples.html
+- contact.html
+- README.md
+- images/
 
 ---
 
@@ -204,15 +234,13 @@ images/
 
 現在想定している画像：
 
-```text
-images/images_ogp.jpg
-images/images_hero-main.jpg
-images/images_qa-sheet.jpg
-images/images_design-navigation.jpg
-images/images_local-dx.jpg
-images/images_about-main.jpg
-images/images_contact-main.jpg
-```
+- images/images_ogp.jpg
+- images/images_hero-main.jpg
+- images/images_qa-sheet.jpg
+- images/images_design-navigation.jpg
+- images/images_local-dx.jpg
+- images/images_about-main.jpg
+- images/images_contact-main.jpg
 
 画像がない場合でも、ページが大きく壊れないように、代替表示を入れています。
 
@@ -220,7 +248,6 @@ images/images_contact-main.jpg
 
 ## 今後追加できること
 
-- 実例ページ
 - サンプル企画集
 - PDF出力
 - QRコード作成ページ
@@ -242,9 +269,9 @@ images/images_contact-main.jpg
 優先順位は以下です。
 
 1. index.html の診断結果文章をさらに使いやすくする
-2. about.html の説明を短く分かりやすくする
-3. contact.html の相談文を実用向けに整える
-4. 実例ページを追加する
+2. examples.html の実例を増やす
+3. about.html の説明を短く分かりやすくする
+4. contact.html の相談文を実用向けに整える
 5. QRコード付きチラシ用の文章を作る
 6. PDF説明書を作る
 
