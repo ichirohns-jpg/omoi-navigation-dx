@@ -3,975 +3,1050 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>相談・作成依頼｜想いを形にするナビゲーションDX</title>
+
+<title>相談・依頼｜想いを形にするナビゲーションDX</title>
+
+<meta name="description" content="想いを形にするナビゲーションDXの相談・依頼ページです。企画、地域DX、お店PR、イベント案内、QRページ、企画書づくりの相談文を作成できます。">
+<meta name="theme-color" content="#0b1220">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
 <link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
 <link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
+
 <meta name="apple-mobile-web-app-title" content="想いDX">
 <meta name="application-name" content="想いDX">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0b1220">
-
-<meta name="description" content="DX作成相談・依頼文をQ&Aから作成できるページです。">
-<link rel="canonical" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/contact.html">
 
 <meta property="og:site_name" content="想いを形にするナビゲーションDX">
-<meta property="og:title" content="相談・作成依頼｜想いを形にするナビゲーションDX">
-<meta property="og:description" content="相談内容を整理して、DX作成依頼文としてコピーできます。">
+<meta property="og:title" content="相談・依頼｜想いを形にするナビゲーションDX">
+<meta property="og:description" content="企画や地域DXの相談文を作成できます。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/contact.html">
 <meta property="og:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
-<meta property="og:image:secure_url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="相談・作成依頼｜想いを形にするナビゲーションDX">
-<meta name="twitter:description" content="相談内容を整理して、DX作成依頼文としてコピーできます。">
+<meta name="twitter:title" content="相談・依頼｜想いを形にするナビゲーションDX">
+<meta name="twitter:description" content="企画や地域DXの相談文を作成できます。">
 <meta name="twitter:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
 
 <style>
+
 *{
-  box-sizing:border-box;
+ box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
-  background:radial-gradient(circle at top,#1f4f73 0,#0b1220 38%,#05070d 100%);
-  color:#fff;
-  line-height:1.75;
+ margin:0;
+ font-family:
+ "Hiragino Sans",
+ "Yu Gothic",
+ "Meiryo",
+ sans-serif;
+ background:
+ radial-gradient(circle at top,#24466f 0,#0b1220 35%,#05070d 100%);
+ color:#fff;
+ line-height:1.75;
+ -webkit-text-size-adjust:100%;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+ color:inherit;
+ text-decoration:none;
 }
 
 button,
 input,
 textarea,
 select{
-  font-family:inherit;
+ font-family:inherit;
+}
+
+img{
+ max-width:100%;
 }
 
 .wrap{
-  width:min(1100px,94%);
-  margin:0 auto;
-  padding:18px 0 70px;
+ width:min(1080px,94%);
+ margin:0 auto;
+ padding:20px 0 70px;
 }
 
 .header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  padding:16px 0;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ padding:12px 0 18px;
 }
 
 .logo{
-  font-weight:900;
-  letter-spacing:.04em;
-  font-size:18px;
+ font-weight:900;
+ letter-spacing:.04em;
+ font-size:18px;
+ line-height:1.35;
 }
 
 .nav{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ justify-content:flex-end;
 }
 
 .nav a{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.18);
-  color:#e5e7eb;
-  font-size:14px;
-  font-weight:800;
+ display:inline-block;
+ padding:10px 14px;
+ border-radius:999px;
+ background:rgba(255,255,255,.1);
+ border:1px solid rgba(255,255,255,.18);
+ color:#e5e7eb;
+ font-size:14px;
+ font-weight:800;
+}
+
+.nav a.active{
+ background:rgba(250,204,21,.22);
+ border-color:rgba(250,204,21,.55);
+ color:#fef9c3;
 }
 
 .hero{
-  text-align:center;
-  padding:34px 16px 30px;
+ margin-top:10px;
+ border-radius:34px;
+ overflow:hidden;
+ background:
+ radial-gradient(circle at top right,rgba(250,204,21,.24),transparent 32%),
+ linear-gradient(135deg,rgba(15,23,42,.96),rgba(30,64,175,.75));
+ border:1px solid rgba(255,255,255,.16);
+ box-shadow:0 24px 70px rgba(0,0,0,.38);
+}
+
+.heroGrid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:0;
+}
+
+.heroText{
+ padding:28px 22px;
 }
 
 .badge{
-  display:inline-block;
-  padding:8px 16px;
-  border:1px solid rgba(250,204,21,.4);
-  border-radius:999px;
-  background:rgba(250,204,21,.14);
-  color:#fef9c3;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:16px;
+ display:inline-block;
+ padding:8px 15px;
+ border-radius:999px;
+ background:rgba(250,204,21,.16);
+ border:1px solid rgba(250,204,21,.38);
+ color:#fef9c3;
+ font-size:14px;
+ font-weight:900;
+ margin-bottom:14px;
 }
 
 .hero h1{
-  margin:0;
-  font-size:clamp(30px,7vw,56px);
-  line-height:1.16;
-  font-weight:900;
+ margin:0;
+ font-size:clamp(32px,8vw,58px);
+ line-height:1.15;
+ font-weight:900;
 }
 
 .hero h1 span{
-  display:block;
-  color:#facc15;
+ color:#facc15;
+ display:block;
 }
 
 .hero p{
-  max-width:820px;
-  margin:18px auto 0;
-  color:#e5e7eb;
-  font-size:clamp(16px,4vw,21px);
-  font-weight:800;
+ margin:16px 0 0;
+ color:#e5e7eb;
+ font-size:clamp(16px,4vw,21px);
+ font-weight:760;
+}
+
+.heroImage{
+ min-height:180px;
+ background:#020617;
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+}
+
+.heroImage img{
+ width:100%;
+ display:block;
+}
+
+.fallback{
+ padding:42px 20px;
+ text-align:center;
+ color:#cbd5e1;
+ font-weight:900;
+}
+
+.section{
+ margin-top:24px;
 }
 
 .card{
-  background:rgba(255,255,255,.95);
-  color:#111827;
-  border-radius:28px;
-  padding:24px;
-  margin:18px 0;
-  box-shadow:0 18px 50px rgba(0,0,0,.28);
-  border:1px solid rgba(255,255,255,.22);
+ background:rgba(255,255,255,.94);
+ color:#111827;
+ border-radius:26px;
+ padding:22px;
+ box-shadow:0 18px 48px rgba(0,0,0,.24);
 }
 
-.card.dark{
-  background:rgba(15,23,42,.94);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.14);
-}
-
-.card.gold{
-  background:linear-gradient(135deg,rgba(250,204,21,.98),rgba(249,115,22,.96));
-  color:#111827;
+.cardDark{
+ background:rgba(15,23,42,.78);
+ color:#fff;
+ border:1px solid rgba(255,255,255,.16);
 }
 
 .card h2{
-  margin:0 0 14px;
-  font-size:clamp(24px,5vw,34px);
-  line-height:1.3;
+ margin:0 0 12px;
+ font-size:clamp(24px,5vw,36px);
+ line-height:1.25;
+ color:#0f172a;
+}
+
+.cardDark h2{
+ color:#fff;
 }
 
 .card h3{
-  margin:0 0 10px;
-  font-size:20px;
+ margin:0 0 8px;
+ font-size:21px;
+ color:#0f172a;
+}
+
+.cardDark h3{
+ color:#fef9c3;
+}
+
+.card p{
+ margin:10px 0 0;
+ color:#334155;
+ font-weight:760;
+}
+
+.cardDark p{
+ color:#d1d5db;
 }
 
 .lead{
-  font-size:18px;
-  font-weight:800;
-  color:#374151;
-  margin:0 0 18px;
-}
-
-.dark .lead{
-  color:#d1d5db;
-}
-
-.wideImage{
-  margin:18px 0 22px;
-  border-radius:26px;
-  overflow:hidden;
-  background:#000;
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 16px 42px rgba(0,0,0,.28);
-}
-
-.wideImage img{
-  display:block;
-  width:100%;
-  height:auto;
+ font-size:18px;
+ font-weight:800;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
+ display:grid;
+ grid-template-columns:1fr;
+ gap:16px;
+ margin-top:16px;
 }
 
 .item{
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-  border-radius:20px;
-  padding:18px;
+ background:#f8fafc;
+ border:1px solid #e2e8f0;
+ border-radius:22px;
+ padding:16px;
 }
 
-.dark .item{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
+.item strong{
+ display:block;
+ color:#0f172a;
+ font-size:18px;
+ font-weight:900;
+ margin-bottom:5px;
 }
 
-.item h3{
-  margin:0 0 8px;
-  font-size:19px;
-}
-
-.item p{
-  margin:0;
-}
-
-.price{
-  font-size:22px;
-  font-weight:900;
-  color:#b45309;
-  margin-top:10px;
+.item span{
+ display:block;
+ color:#475569;
+ font-weight:760;
 }
 
 .formGrid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
+ display:grid;
+ grid-template-columns:1fr;
+ gap:16px;
+ margin-top:16px;
 }
 
-.field{
-  margin:0;
+.formBlock{
+ background:#f8fafc;
+ border:1px solid #e5e7eb;
+ border-radius:20px;
+ padding:16px;
 }
 
-.field label,
-.fieldTitle{
-  display:block;
-  font-weight:900;
-  margin:0 0 8px;
-  color:#111827;
+.formBlock .title{
+ display:block;
+ font-weight:900;
+ color:#0f172a;
+ font-size:18px;
+ margin-bottom:6px;
 }
 
 .hint{
-  margin:4px 0 8px;
-  color:#6b7280;
-  font-size:14px;
-  font-weight:700;
+ margin:0 0 10px;
+ color:#475569;
+ font-weight:700;
+ font-size:14px;
 }
 
-input[type="text"],
+input,
 textarea,
 select{
-  width:100%;
-  border:1px solid #d1d5db;
-  border-radius:16px;
-  padding:13px 14px;
-  font-size:16px;
-  background:#fff;
-  color:#111827;
-  outline:none;
+ width:100%;
+ border:1px solid #cbd5e1;
+ border-radius:16px;
+ padding:13px 14px;
+ font-size:16px;
+ color:#0f172a;
+ background:#fff;
+ outline:none;
 }
 
 textarea{
-  min-height:96px;
-  resize:vertical;
+ min-height:110px;
+ resize:vertical;
 }
 
-input[type="text"]:focus,
+input:focus,
 textarea:focus,
 select:focus{
-  border-color:#2563eb;
-  box-shadow:0 0 0 4px rgba(37,99,235,.15);
+ border-color:#2563eb;
+ box-shadow:0 0 0 4px rgba(37,99,235,.16);
 }
 
-.checkGrid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
-}
-
-.checkItem{
-  display:flex;
-  align-items:flex-start;
-  gap:8px;
-  padding:10px 12px;
-  border:1px solid #e5e7eb;
-  border-radius:14px;
-  background:#f9fafb;
-  color:#111827;
-  font-weight:800;
-}
-
-.checkItem input{
-  margin-top:5px;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:20px;
+.actionRow{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:12px;
+ margin-top:18px;
 }
 
 .btn{
-  border:0;
-  border-radius:999px;
-  padding:13px 18px;
-  font-size:16px;
-  font-weight:900;
-  cursor:pointer;
-  display:inline-block;
-  text-align:center;
+ display:block;
+ width:100%;
+ border:0;
+ border-radius:18px;
+ padding:15px 18px;
+ cursor:pointer;
+ text-align:center;
+ font-size:16px;
+ font-weight:900;
 }
 
-.btnMain{
-  background:#facc15;
-  color:#111827;
+.btnPrimary{
+ background:linear-gradient(135deg,#facc15,#f97316);
+ color:#111827;
 }
 
-.btnSub{
-  background:#e5e7eb;
-  color:#111827;
+.btnBlue{
+ background:linear-gradient(135deg,#2563eb,#0ea5e9);
+ color:#fff;
+}
+
+.btnGreen{
+ background:linear-gradient(135deg,#16a34a,#22c55e);
+ color:#fff;
 }
 
 .btnDark{
-  background:#0f172a;
-  color:#fff;
+ background:#0f172a;
+ color:#fff;
 }
 
-.btnCopy{
-  background:#0f172a;
-  color:#fff;
-  padding:9px 13px;
-  font-size:14px;
+.btnWhite{
+ background:#fff;
+ color:#0f172a;
+ border:1px solid #cbd5e1;
 }
 
-.resultArea{
-  display:none;
-  margin-top:28px;
+.resultBox{
+ display:none;
+ margin-top:20px;
 }
 
-.resultArea.show{
-  display:block;
-}
-
-.notice{
-  display:none;
-  margin:0 0 12px;
-  padding:10px 14px;
-  border-radius:14px;
-  background:rgba(34,197,94,.16);
-  border:1px solid rgba(34,197,94,.4);
-  color:#bbf7d0;
-  font-weight:900;
-}
-
-.notice.show{
-  display:block;
-}
-
-.outputGrid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-
-.outputCard{
-  background:rgba(255,255,255,.96);
-  color:#111827;
-  border-radius:22px;
-  padding:18px;
-  box-shadow:0 14px 38px rgba(0,0,0,.22);
-}
-
-.outputTop{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:10px;
-}
-
-.outputTop h3{
-  margin:0;
-  font-size:19px;
+.resultBox.show{
+ display:block;
 }
 
 pre{
-  white-space:pre-wrap;
-  word-break:break-word;
-  margin:0;
-  padding:16px;
-  background:#0b1220;
-  color:#f8fafc;
-  border-radius:16px;
-  overflow:auto;
-  font-size:14px;
-  line-height:1.8;
+ white-space:pre-wrap;
+ word-break:break-word;
+ margin:0;
+ background:#0f172a;
+ color:#e5e7eb;
+ border-radius:18px;
+ padding:16px;
+ font-size:14px;
+ line-height:1.75;
 }
 
-.steps{
-  margin:0;
-  padding-left:1.2em;
+.copyNotice{
+ display:none;
+ position:fixed;
+ left:50%;
+ bottom:22px;
+ transform:translateX(-50%);
+ background:#facc15;
+ color:#111827;
+ padding:12px 18px;
+ border-radius:999px;
+ font-weight:900;
+ box-shadow:0 12px 34px rgba(0,0,0,.32);
+ z-index:50;
 }
 
-.steps li{
-  margin:8px 0;
-  font-weight:700;
+.copyNotice.show{
+ display:block;
+}
+
+.messageBox{
+ background:
+ radial-gradient(circle at top right,rgba(250,204,21,.22),transparent 34%),
+ linear-gradient(135deg,#0f172a,#1e3a8a);
+ border:1px solid rgba(255,255,255,.16);
+ border-radius:28px;
+ padding:24px;
+ color:#fff;
+ box-shadow:0 18px 48px rgba(0,0,0,.24);
+}
+
+.messageBox h2{
+ margin:0 0 12px;
+ font-size:clamp(26px,6vw,42px);
+ line-height:1.25;
+}
+
+.messageBox p{
+ margin:10px 0 0;
+ color:#e5e7eb;
+ font-weight:780;
+}
+
+.notice{
+ margin-top:14px;
+ padding:14px;
+ border-radius:20px;
+ background:#fff7ed;
+ border:1px solid #fed7aa;
+ color:#7c2d12;
+ font-weight:800;
 }
 
 .footer{
-  text-align:center;
-  color:#cbd5e1;
-  padding:28px 0 0;
-  font-size:14px;
+ margin-top:40px;
+ padding:24px 0;
+ text-align:center;
+ color:#cbd5e1;
+ font-weight:700;
 }
 
-@media (min-width:800px){
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .formGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .wide{
-    grid-column:1 / -1;
-  }
-
-  .checkGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .outputGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .outputFull{
-    grid-column:1 / -1;
-  }
+.smallNote{
+ margin-top:12px;
+ color:#94a3b8;
+ font-size:13px;
+ font-weight:700;
 }
 
-@media (max-width:560px){
-  .header{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+@media (min-width:760px){
 
-  .nav a{
-    font-size:13px;
-    padding:8px 11px;
-  }
+ .heroGrid{
+  grid-template-columns:1.08fr .92fr;
+ }
 
-  .card{
-    padding:18px;
-  }
+ .heroText{
+  padding:44px 38px;
+ }
 
-  .btn{
-    width:100%;
-  }
+ .grid{
+  grid-template-columns:repeat(3,1fr);
+ }
 
-  .outputTop{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+ .formGrid{
+  grid-template-columns:repeat(2,1fr);
+ }
 
-  .btnCopy{
-    width:auto;
-  }
+ .wide{
+  grid-column:1 / -1;
+ }
+
+ .actionRow{
+  grid-template-columns:repeat(3,1fr);
+ }
+
 }
+
+@media (max-width:640px){
+
+ .header{
+  display:block;
+ }
+
+ .logo{
+  margin-bottom:12px;
+ }
+
+ .nav{
+  justify-content:flex-start;
+ }
+
+ .nav a{
+  font-size:13px;
+  padding:9px 11px;
+ }
+
+ .card{
+  padding:18px;
+ }
+
+ .formBlock{
+  padding:14px;
+ }
+
+}
+
 </style>
 </head>
 
 <body>
+
 <div class="wrap">
 
-  <header class="header">
-    <a class="logo" href="index.html">想いを形にするDX</a>
-    <nav class="nav">
-      <a href="index.html">診断ページ</a>
-      <a href="about.html">このDXについて</a>
-      <a href="#form">相談文作成</a>
-    </nav>
-  </header>
+<header class="header">
+ <a class="logo" href="index.html">
+  想いを形にするDX
+ </a>
 
-  <section class="hero">
-    <div class="badge">相談・作成依頼</div>
-    <h1>
-      あなたの想いを
-      <span>使える形にします</span>
-    </h1>
-    <p>
-      地域活動、お店のPR、イベント告知、クラウドファンディング準備、提案書づくり。
-      まずは相談内容を整理して、作成依頼文としてコピーできます。
-    </p>
-  </section>
+ <nav class="nav">
+  <a href="index.html">診断ページ</a>
+  <a href="about.html">このDXについて</a>
+  <a class="active" href="contact.html">相談・依頼</a>
+ </nav>
+</header>
 
-  <section class="card gold">
-    <h2>まずは小さく形にする</h2>
-    <p>
-      いきなり大きなシステムではなく、1ページDXから始めます。
-      最初は、スマホで見られる案内ページ、QRコード導線、SNS告知文、企画書たたき台など、
-      すぐに試せる最小版を作ります。
-      反応を見ながら、必要な機能を一つずつ追加して育てていきます。
-    </p>
-  </section>
+<main>
 
-  <section class="card">
-    <h2>作成代行メニュー</h2>
-    <p class="lead">内容に合わせて、最小版から本格DXまで対応します。</p>
+<section class="hero">
 
-    <div class="wideImage">
-      <img src="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_service-support.jpg" alt="DX作成代行・相談サポート">
-    </div>
+ <div class="heroGrid">
 
-    <div class="grid">
-      <div class="item">
-        <h3>企画整理コース</h3>
-        <p>ヒアリング内容をもとに、DX設計シートと企画書たたき台を作成します。</p>
-        <div class="price">5,000円〜15,000円</div>
-      </div>
+  <div class="heroText">
+   <div class="badge">
+    相談前に、内容を整理できます
+   </div>
 
-      <div class="item">
-        <h3>1ページDX作成コース</h3>
-        <p>スマホで見られる案内ページ、QRコード導線、SNS投稿文を作成します。</p>
-        <div class="price">20,000円〜50,000円</div>
-      </div>
+   <h1>
+    相談・依頼の
+    <span>文章を作る</span>
+   </h1>
 
-      <div class="item">
-        <h3>本格DX作成コース</h3>
-        <p>お知らせ、フォーム、画像・動画表示、Googleスプレッドシート連携などを作成します。</p>
-        <div class="price">50,000円〜150,000円</div>
-      </div>
+   <p>
+    地域DX、お店PR、イベント案内、QRページ、企画書づくりなど、
+    相談したい内容を整理して、LINEやメールに貼れる文章を作ります。
+   </p>
+  </div>
 
-      <div class="item">
-        <h3>クラファン・提案書コース</h3>
-        <p>提案書、クラウドファンディング本文、支援メニュー、告知文を作成します。</p>
-        <div class="price">30,000円〜100,000円</div>
-      </div>
-    </div>
-  </section>
+  <div class="heroImage">
+   <img src="images/images_contact-main.jpg" alt="相談・依頼" onerror="this.style.display='none';document.getElementById('fallback').style.display='block';">
+   <div id="fallback" class="fallback" style="display:none;">
+    相談・依頼ページ
+   </div>
+  </div>
 
-  <section id="form" class="card">
-    <h2>相談内容を整理する</h2>
-    <p class="lead">入力すると、相談・作成依頼に使える文章を自動で作ります。</p>
+ </div>
 
-    <form id="contactForm">
-      <div class="formGrid">
+</section>
 
-        <div class="field">
-          <label for="name">お名前・活動名</label>
-          <input id="name" type="text" placeholder="例：山口貞一郎">
-        </div>
+<section class="section card">
 
-        <div class="field">
-          <label for="projectName">作りたいもの・企画名</label>
-          <input id="projectName" type="text" placeholder="例：デジタル町内会">
-        </div>
+ <h2>相談できること</h2>
 
-        <div class="field wide">
-          <label for="goal">何を実現したいですか？</label>
-          <textarea id="goal" placeholder="例：町内会のデジタル回覧板を作りたい"></textarea>
-        </div>
+ <p class="lead">
+  まだ内容が固まっていなくても大丈夫です。最初は、たたき台づくりから始められます。
+ </p>
 
-        <div class="field">
-          <label for="target">誰に届けたいですか？</label>
-          <textarea id="target" placeholder="例：地域住民、高齢者、商店会、イベント参加者"></textarea>
-        </div>
+ <div class="grid">
 
-        <div class="field">
-          <label for="problem">今、困っていること</label>
-          <textarea id="problem" placeholder="例：役員の高齢化で、回覧や集金の負担が大きい"></textarea>
-        </div>
+  <div class="item">
+   <strong>地域DX</strong>
+   <span>
+    活動報告、市民の声、困りごと投稿、まち歩き、地域案内など。
+   </span>
+  </div>
 
-        <div class="field">
-          <label for="course">相談したい内容</label>
-          <select id="course">
-            <option value="企画整理コース">企画整理コース</option>
-            <option value="1ページDX作成コース">1ページDX作成コース</option>
-            <option value="本格DX作成コース">本格DX作成コース</option>
-            <option value="クラファン・提案書コース">クラファン・提案書コース</option>
-            <option value="まだ分からないので相談したい">まだ分からないので相談したい</option>
-          </select>
-        </div>
+  <div class="item">
+   <strong>お店・イベント</strong>
+   <span>
+    お店PR、商店会企画、イベント告知、QR付きチラシなど。
+   </span>
+  </div>
 
-        <div class="field">
-          <label for="budget">予算感</label>
-          <select id="budget">
-            <option value="まだ未定">まだ未定</option>
-            <option value="5,000円〜15,000円">5,000円〜15,000円</option>
-            <option value="20,000円〜50,000円">20,000円〜50,000円</option>
-            <option value="50,000円〜150,000円">50,000円〜150,000円</option>
-            <option value="150,000円以上も相談">150,000円以上も相談</option>
-          </select>
-        </div>
+  <div class="item">
+   <strong>企画書・AI指示文</strong>
+   <span>
+    企画書たたき台、制作指示文、デザイン指示文、PDF資料など。
+   </span>
+  </div>
 
-        <div class="field">
-          <label for="schedule">希望時期</label>
-          <select id="schedule">
-            <option value="急ぎではない">急ぎではない</option>
-            <option value="できれば数日以内">できれば数日以内</option>
-            <option value="1週間以内">1週間以内</option>
-            <option value="今月中">今月中</option>
-            <option value="イベント日までに必要">イベント日までに必要</option>
-          </select>
-        </div>
+ </div>
 
-        <div class="field wide">
-          <div class="fieldTitle">作りたいもの</div>
-          <div class="checkGrid">
-            <label class="checkItem"><input type="checkbox" name="want" value="1ページ案内ページ">1ページ案内ページ</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="QRコード導線">QRコード導線</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="SNS投稿文">SNS投稿文</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="企画書たたき台">企画書たたき台</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="提案書PDF">提案書PDF</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="お知らせページ">お知らせページ</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="申し込みフォーム">申し込みフォーム</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="写真・動画表示">写真・動画表示</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="スプレッドシート連携">スプレッドシート連携</label>
-            <label class="checkItem"><input type="checkbox" name="want" value="クラファン本文">クラファン本文</label>
-          </div>
-        </div>
+</section>
 
-        <div class="field wide">
-          <div class="fieldTitle">希望する雰囲気</div>
-          <div class="checkGrid">
-            <label class="checkItem"><input type="checkbox" name="mood" value="高級感">高級感</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="信頼感">信頼感</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="親しみやすい">親しみやすい</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="やさしい">やさしい</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="行政風">行政風</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="地域密着">地域密着</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="高齢者向け">高齢者向け</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="クラファン向け">クラファン向け</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="和風">和風</label>
-            <label class="checkItem"><input type="checkbox" name="mood" value="未来感">未来感</label>
-          </div>
-        </div>
+<section class="section card">
 
-        <div class="field wide">
-          <label for="note">補足・伝えたいこと</label>
-          <textarea id="note" placeholder="例：まずは最小版でどこまで作れるか相談したいです。"></textarea>
-        </div>
+ <h2>相談文を作る</h2>
 
-      </div>
+ <p>
+  入力した内容から、相談用の文章を作ります。作った文章をコピーして、LINEやメールに貼って使えます。
+ </p>
 
-      <div class="actions">
-        <button class="btn btnMain" type="button" onclick="makeContactText()">相談文を作る</button>
-        <button class="btn btnSub" type="button" onclick="sampleFill()">サンプル入力</button>
-        <button class="btn btnDark" type="button" onclick="clearForm()">クリア</button>
-      </div>
-    </form>
-  </section>
+ <div class="formGrid">
 
-  <section id="resultArea" class="resultArea">
-    <div class="notice" id="copyNotice">コピーしました。</div>
+  <div class="formBlock">
+   <label class="title" for="name">お名前・団体名</label>
+   <p class="hint">未入力でも大丈夫です。</p>
+   <input id="name" type="text" placeholder="例：山口貞一郎 / ○○商店会">
+  </div>
 
-    <div class="outputGrid">
-      <div class="outputCard outputFull">
-        <div class="outputTop">
-          <h3>相談・作成依頼文</h3>
-          <button class="btn btnCopy" type="button" onclick="copyText('contactOutput')">コピー</button>
-        </div>
-        <pre id="contactOutput"></pre>
-      </div>
+  <div class="formBlock">
+   <label class="title" for="kind">相談の種類</label>
+   <select id="kind">
+    <option value="地域DXの相談">地域DXの相談</option>
+    <option value="お店PRページの相談">お店PRページの相談</option>
+    <option value="イベント告知ページの相談">イベント告知ページの相談</option>
+    <option value="QRコード付き案内ページの相談">QRコード付き案内ページの相談</option>
+    <option value="企画書たたき台の相談">企画書たたき台の相談</option>
+    <option value="チラシ・PDF資料の相談">チラシ・PDF資料の相談</option>
+    <option value="AI指示文づくりの相談">AI指示文づくりの相談</option>
+    <option value="その他の相談">その他の相談</option>
+   </select>
+  </div>
 
-      <div class="outputCard outputFull">
-        <div class="outputTop">
-          <h3>制作前チェックリスト</h3>
-          <button class="btn btnCopy" type="button" onclick="copyText('checkOutput')">コピー</button>
-        </div>
-        <pre id="checkOutput"></pre>
-      </div>
-    </div>
-  </section>
+  <div class="formBlock wide">
+   <label class="title" for="want">作りたいもの・相談したいこと</label>
+   <textarea id="want" placeholder="例：地域活動の報告、困りごと投稿、応援メッセージをスマホで見られるページにしたい。"></textarea>
+  </div>
 
-  <section class="card dark">
-    <h2>相談の送り方</h2>
-    <p class="lead">作成された相談文をコピーして、メール・LINE・SNSなどに貼って送ってください。</p>
+  <div class="formBlock">
+   <label class="title" for="target">誰に向けたものですか？</label>
+   <textarea id="target" placeholder="例：地域の高齢者、商店会のお客さん、イベント参加者、市民団体など"></textarea>
+  </div>
 
-    <ol class="steps">
-      <li>上の入力欄に内容を入れて、相談文を作ります。</li>
-      <li>作成された文章をコピーします。</li>
-      <li>メールやSNSに貼り付けて送信します。</li>
-      <li>まずは1ページDXなど、小さく動く形から始めます。</li>
-    </ol>
-  </section>
+  <div class="formBlock">
+   <label class="title" for="problem">今困っていること</label>
+   <textarea id="problem" placeholder="例：情報がバラバラで、何をどう伝えればいいか分からない。"></textarea>
+  </div>
 
-  <section class="card gold">
-    <h2>大事な考え方</h2>
-    <p>
-      まず動く形にする。反応を見て、育てる。
-      完璧なシステムを最初から作るのではなく、
-      1ページ、QRコード、SNS投稿、企画書など、
-      すぐに使える形から始めることを大切にします。
-    </p>
-  </section>
+  <div class="formBlock">
+   <label class="title" for="deadline">希望時期</label>
+   <select id="deadline">
+    <option value="まだ決まっていない">まだ決まっていない</option>
+    <option value="できるだけ早く">できるだけ早く</option>
+    <option value="1週間以内">1週間以内</option>
+    <option value="今月中">今月中</option>
+    <option value="来月中">来月中</option>
+    <option value="イベント開催日まで">イベント開催日まで</option>
+    <option value="急がない">急がない</option>
+   </select>
+  </div>
 
-  <footer class="footer">
-    想いを形にするナビゲーションDX<br>
-    相談・作成依頼ページ
-  </footer>
+  <div class="formBlock">
+   <label class="title" for="budget">予算感</label>
+   <select id="budget">
+    <option value="まだ決まっていない">まだ決まっていない</option>
+    <option value="まずは無料・低コストで試したい">まずは無料・低コストで試したい</option>
+    <option value="小さく試してから考えたい">小さく試してから考えたい</option>
+    <option value="補助金・GCF・協賛も考えたい">補助金・GCF・協賛も考えたい</option>
+    <option value="必要なら費用をかけてもよい">必要なら費用をかけてもよい</option>
+   </select>
+  </div>
+
+  <div class="formBlock wide">
+   <label class="title" for="url">参考URL・すでにあるページ</label>
+   <p class="hint">なければ空欄で大丈夫です。</p>
+   <input id="url" type="text" placeholder="例：https://example.com/">
+  </div>
+
+  <div class="formBlock wide">
+   <label class="title" for="memo">補足メモ</label>
+   <textarea id="memo" placeholder="例：スマホで見やすく、高齢者にも分かるようにしたい。まずは1ページだけ作りたい。"></textarea>
+  </div>
+
+ </div>
+
+ <div class="actionRow">
+  <button type="button" class="btn btnPrimary" onclick="makeMessage()">
+   相談文を作る
+  </button>
+
+  <button type="button" class="btn btnBlue" onclick="fillSample('local')">
+   地域DXサンプル
+  </button>
+
+  <button type="button" class="btn btnDark" onclick="clearForm()">
+   クリア
+  </button>
+ </div>
+
+ <div id="resultBox" class="resultBox">
+  <h3>できあがった相談文</h3>
+  <pre id="messageText"></pre>
+
+  <div class="actionRow">
+   <button type="button" class="btn btnPrimary" onclick="copyMessage()">
+    コピー
+   </button>
+
+   <button type="button" class="btn btnGreen" onclick="shareLine()">
+    LINEで送る
+   </button>
+
+   <button type="button" class="btn btnWhite" onclick="shareMail()">
+    メールで送る
+   </button>
+  </div>
+ </div>
+
+ <div class="notice">
+  このページは送信フォームではありません。作成した文章をコピーして、LINEやメールに貼って使うための整理ページです。
+ </div>
+
+</section>
+
+<section class="section messageBox">
+
+ <h2>まずは、たたき台から</h2>
+
+ <p>
+  相談内容が完璧にまとまっていなくても大丈夫です。
+  最初は「何を作りたいか」「誰のためか」「何に困っているか」だけ分かれば、次の一歩を整理できます。
+ </p>
+
+ <div class="actionRow">
+  <a class="btn btnPrimary" href="index.html#diagnosis">
+   診断ページへ
+  </a>
+
+  <a class="btn btnWhite" href="about.html">
+   このDXについて
+  </a>
+
+  <a class="btn btnBlue" href="index.html">
+   トップへ戻る
+  </a>
+ </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+ <div>想いを形にするナビゲーションDX</div>
+ <div class="smallNote">
+  Q&Aから設計シート・企画書・AI指示文へ
+ </div>
+</footer>
 
 </div>
 
+<div id="copyNotice" class="copyNotice">
+ コピーしました。
+</div>
+
 <script>
-function val(id){
-  const el = document.getElementById(id);
-  return el ? String(el.value || "").trim() : "";
+
+function qs(id){
+ return document.getElementById(id);
 }
 
-function setVal(id,value){
-  const el = document.getElementById(id);
-  if(el){
-    el.value = value;
-  }
+function getValue(id){
+
+ const el =
+ qs(id);
+
+ if(!el){
+  return "";
+ }
+
+ return String(el.value || "").trim();
+
 }
 
-function checkedValues(name){
-  return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function(el){
-    return el.value;
+function setValue(id,value){
+
+ const el =
+ qs(id);
+
+ if(el){
+  el.value = value;
+ }
+
+}
+
+function makeMessage(){
+
+ const name =
+ getValue("name");
+
+ const kind =
+ getValue("kind");
+
+ const want =
+ getValue("want");
+
+ const target =
+ getValue("target");
+
+ const problem =
+ getValue("problem");
+
+ const deadline =
+ getValue("deadline");
+
+ const budget =
+ getValue("budget");
+
+ const url =
+ getValue("url");
+
+ const memo =
+ getValue("memo");
+
+ const lines = [];
+
+ lines.push("相談・依頼のお願い");
+ lines.push("");
+
+ if(name){
+  lines.push("【名前・団体名】");
+  lines.push(name);
+  lines.push("");
+ }
+
+ lines.push("【相談の種類】");
+ lines.push(kind || "未選択");
+ lines.push("");
+
+ lines.push("【作りたいもの・相談したいこと】");
+ lines.push(want || "未入力");
+ lines.push("");
+
+ lines.push("【誰に向けたものか】");
+ lines.push(target || "未入力");
+ lines.push("");
+
+ lines.push("【今困っていること】");
+ lines.push(problem || "未入力");
+ lines.push("");
+
+ lines.push("【希望時期】");
+ lines.push(deadline || "未選択");
+ lines.push("");
+
+ lines.push("【予算感】");
+ lines.push(budget || "未選択");
+ lines.push("");
+
+ if(url){
+  lines.push("【参考URL・すでにあるページ】");
+  lines.push(url);
+  lines.push("");
+ }
+
+ if(memo){
+  lines.push("【補足メモ】");
+  lines.push(memo);
+  lines.push("");
+ }
+
+ lines.push("まずは、たたき台づくりから相談したいです。");
+ lines.push("よろしくお願いします。");
+
+ const text =
+ lines.join("\n");
+
+ const output =
+ qs("messageText");
+
+ if(output){
+  output.textContent = text;
+ }
+
+ const box =
+ qs("resultBox");
+
+ if(box){
+  box.classList.add("show");
+  box.scrollIntoView({
+   behavior:"smooth",
+   block:"start"
   });
+ }
+
+ return text;
+
 }
 
-function listText(arr,fallback){
-  if(!arr || arr.length === 0){
-    return fallback;
-  }
+function copyMessage(){
 
-  return arr.map(function(v){
-    return "・" + v;
-  }).join("\n");
-}
+ const text =
+ makeMessage();
 
-function textOrDefault(text,fallback){
-  return text && text.length ? text : fallback;
-}
+ if(!text.trim()){
+  return;
+ }
 
-function setText(id,text){
-  const el = document.getElementById(id);
-  if(el){
-    el.textContent = text;
-  }
-}
+ if(navigator.clipboard){
 
-function buildContactText(){
-  const name = val("name");
-  const projectName = val("projectName");
-  const goal = val("goal");
-  const target = val("target");
-  const problem = val("problem");
-  const course = val("course");
-  const budget = val("budget");
-  const schedule = val("schedule");
-  const note = val("note");
-  const wants = checkedValues("want");
-  const moods = checkedValues("mood");
-
-  const safeName = textOrDefault(name,"未入力");
-  const safeProject = textOrDefault(projectName,"未定");
-  const safeGoal = textOrDefault(goal,"これから相談しながら整理したい");
-  const safeTarget = textOrDefault(target,"地域の人、利用者、関係者");
-  const safeProblem = textOrDefault(problem,"何から始めればよいか分からない");
-  const safeNote = textOrDefault(note,"まずは、最小版でどこまで作れるか相談したいです。");
-
-  const wantText = listText(wants,"・まずは相談して決めたい");
-  const moodText = listText(moods,"・見やすく分かりやすい雰囲気");
-
-  const contactText = [
-    "【DX作成相談・依頼】",
-    "",
-    "お名前・活動名：",
-    safeName,
-    "",
-    "作りたいもの・企画名：",
-    safeProject,
-    "",
-    "実現したいこと：",
-    safeGoal,
-    "",
-    "届けたい相手：",
-    safeTarget,
-    "",
-    "今、困っていること：",
-    safeProblem,
-    "",
-    "相談したい内容：",
-    course,
-    "",
-    "作りたいもの：",
-    wantText,
-    "",
-    "希望する雰囲気：",
-    moodText,
-    "",
-    "予算感：",
-    budget,
-    "",
-    "希望時期：",
-    schedule,
-    "",
-    "補足・伝えたいこと：",
-    safeNote,
-    "",
-    "よろしくお願いします。"
-  ].join("\n");
-
-  const checkText = [
-    "【制作前チェックリスト】",
-    "",
-    "1. まず決めること",
-    "・企画名",
-    "・届けたい相手",
-    "・最初に作る最小版",
-    "",
-    "2. 最小版で作る候補",
-    wantText,
-    "",
-    "3. 文章として必要なもの",
-    "・一言説明",
-    "・目的",
-    "・困りごと",
-    "・期待される効果",
-    "・問い合わせ導線",
-    "",
-    "4. 確認すること",
-    "・スマホで見やすいか",
-    "・QRコードから開けるか",
-    "・次に何をすればよいか分かるか",
-    "",
-    "5. 追加機能は後から",
-    "・お知らせ",
-    "・フォーム",
-    "・動画",
-    "・スプレッドシート連携",
-    "・クラファン本文",
-    "",
-    "最初から全部作らず、まず動く形を作る。"
-  ].join("\n");
-
-  return {
-    contactText:contactText,
-    checkText:checkText
-  };
-}
-
-function makeContactText(){
-  const outputs = buildContactText();
-
-  setText("contactOutput",outputs.contactText);
-  setText("checkOutput",outputs.checkText);
-
-  const resultArea = document.getElementById("resultArea");
-  if(resultArea){
-    resultArea.classList.add("show");
-    resultArea.scrollIntoView({behavior:"smooth",block:"start"});
-  }
-}
-
-function setChecks(name,values){
-  document.querySelectorAll('input[name="' + name + '"]').forEach(function(el){
-    el.checked = values.includes(el.value);
+  navigator.clipboard.writeText(text).then(function(){
+   showCopyNotice();
+  }).catch(function(){
+   fallbackCopy(text);
   });
-}
 
-function sampleFill(){
-  setVal("name","山口貞一郎");
-  setVal("projectName","デジタル町内会");
-  setVal("goal","町内会のデジタル回覧板作成、町内会費の徴収、避難先経路作成を進めたい。");
-  setVal("target","地域住民");
-  setVal("problem","町内会役員の高齢化のため、町内会費の徴収や回覧板の運用が大変になっている。");
-  setVal("course","企画整理コース");
-  setVal("budget","20,000円〜50,000円");
-  setVal("schedule","急ぎではない");
-  setVal("note","まずは、最小版でどこまで作れるか相談したいです。");
+ }else{
 
-  setChecks("want",[
-    "QRコード導線",
-    "お知らせページ"
-  ]);
+  fallbackCopy(text);
 
-  setChecks("mood",[
-    "地域密着"
-  ]);
+ }
 
-  makeContactText();
-}
-
-function clearForm(){
-  const form = document.getElementById("contactForm");
-  if(form){
-    form.reset();
-  }
-
-  setText("contactOutput","");
-  setText("checkOutput","");
-
-  const resultArea = document.getElementById("resultArea");
-  if(resultArea){
-    resultArea.classList.remove("show");
-  }
-
-  const notice = document.getElementById("copyNotice");
-  if(notice){
-    notice.classList.remove("show");
-  }
-}
-
-function showCopyNotice(){
-  const notice = document.getElementById("copyNotice");
-  if(!notice){
-    return;
-  }
-
-  notice.classList.add("show");
-
-  window.setTimeout(function(){
-    notice.classList.remove("show");
-  },1800);
 }
 
 function fallbackCopy(text){
-  const area = document.createElement("textarea");
-  area.value = text;
-  area.setAttribute("readonly","");
-  area.style.position = "fixed";
-  area.style.left = "-9999px";
-  area.style.top = "0";
-  document.body.appendChild(area);
-  area.select();
 
-  try{
-    document.execCommand("copy");
-    showCopyNotice();
-  }catch(e){
-    alert("コピーできませんでした。文章を選択してコピーしてください。");
-  }
+ const area =
+ document.createElement("textarea");
 
-  document.body.removeChild(area);
+ area.value = text;
+ document.body.appendChild(area);
+ area.select();
+ document.execCommand("copy");
+ document.body.removeChild(area);
+
+ showCopyNotice();
+
 }
 
-function copyText(id){
-  const el = document.getElementById(id);
-  if(!el){
-    return;
-  }
+function showCopyNotice(){
 
-  const text = el.textContent || "";
+ const notice =
+ qs("copyNotice");
 
-  if(!text.trim()){
-    alert("コピーする文章がまだありません。先に相談文を作ってください。");
-    return;
-  }
+ if(!notice){
+  return;
+ }
 
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(text).then(function(){
-      showCopyNotice();
-    }).catch(function(){
-      fallbackCopy(text);
-    });
-  }else{
-    fallbackCopy(text);
-  }
+ notice.classList.add("show");
+
+ setTimeout(function(){
+  notice.classList.remove("show");
+ },1600);
+
 }
+
+function shareLine(){
+
+ const text =
+ makeMessage();
+
+ const url =
+ "https://line.me/R/msg/text/?" +
+ encodeURIComponent(text);
+
+ window.open(url,"_blank");
+
+}
+
+function shareMail(){
+
+ const text =
+ makeMessage();
+
+ const subject =
+ "DX相談・依頼のお願い";
+
+ const url =
+ "mailto:?subject=" +
+ encodeURIComponent(subject) +
+ "&body=" +
+ encodeURIComponent(text);
+
+ window.location.href = url;
+
+}
+
+function clearForm(){
+
+ [
+  "name",
+  "want",
+  "target",
+  "problem",
+  "url",
+  "memo"
+ ].forEach(function(id){
+
+  setValue(id,"");
+
+ });
+
+ setValue("kind","地域DXの相談");
+ setValue("deadline","まだ決まっていない");
+ setValue("budget","まだ決まっていない");
+
+ const output =
+ qs("messageText");
+
+ if(output){
+  output.textContent = "";
+ }
+
+ const box =
+ qs("resultBox");
+
+ if(box){
+  box.classList.remove("show");
+ }
+
+ window.scrollTo({
+  top:0,
+  behavior:"smooth"
+ });
+
+}
+
+function fillSample(type){
+
+ clearForm();
+
+ if(type === "local"){
+
+  setValue("name","山口貞一郎");
+  setValue("kind","地域DXの相談");
+  setValue("want","地域活動の報告、市民の声、困りごと投稿、応援メッセージをスマホで見られるページにしたいです。QRコードから見られる形にして、活動内容を分かりやすく伝えたいです。");
+  setValue("target","地域住民、高齢者、子育て世代、自治会、商店会、市民活動団体など。");
+  setValue("problem","活動していても、何をしているのかが伝わりにくいです。困りごとも人づてで終わってしまい、記録や共有が弱いです。");
+  setValue("deadline","小さく試してから考えたい");
+  setValue("budget","まずは無料・低コストで試したい");
+  setValue("memo","スマホで見やすく、高齢者にも分かるようにしたいです。まずは1ページから始めて、後から管理画面や投稿機能を追加したいです。");
+
+ }
+
+ document.querySelector(".section.card").scrollIntoView({
+  behavior:"smooth",
+  block:"start"
+ });
+
+}
+
 </script>
+
 </body>
 </html>
