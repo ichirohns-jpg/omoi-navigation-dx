@@ -3,619 +3,726 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>このDXについて｜想いを形にするナビゲーションDX</title>
+
+<meta name="description" content="想いを形にするナビゲーションDXは、質問に答えるだけで企画の整理、DX設計シート、企画書たたき台、AI指示文を作るための伴走型DXです。">
+<meta name="theme-color" content="#0b1220">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
 <link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
 <link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
+
 <meta name="apple-mobile-web-app-title" content="想いDX">
 <meta name="application-name" content="想いDX">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0b1220">
-
-<meta name="description" content="想いを形にするナビゲーションDXは、Q&AからDX設計シート・企画書・AI指示文を作る伴走型DXです。">
-<link rel="canonical" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/about.html">
 
 <meta property="og:site_name" content="想いを形にするナビゲーションDX">
 <meta property="og:title" content="このDXについて｜想いを形にするナビゲーションDX">
-<meta property="og:description" content="専門知識がなくても、想いや課題をDX設計シート・企画書・AI指示文に変換します。">
+<meta property="og:description" content="想いや課題を、DX設計シート・企画書・AI指示文に変える伴走型DXです。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/about.html">
 <meta property="og:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
-<meta property="og:image:secure_url" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="このDXについて｜想いを形にするナビゲーションDX">
-<meta name="twitter:description" content="Q&AからDX設計シート・企画書・AI指示文を作る伴走型DXです。">
+<meta name="twitter:description" content="想いや課題を、DX設計シート・企画書・AI指示文に変える伴走型DXです。">
 <meta name="twitter:image" content="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_ogp.jpg">
 
 <style>
+
 *{
-  box-sizing:border-box;
+ box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
-  background:radial-gradient(circle at top,#1f4f73 0,#0b1220 38%,#05070d 100%);
-  color:#fff;
-  line-height:1.75;
+ margin:0;
+ font-family:
+ "Hiragino Sans",
+ "Yu Gothic",
+ "Meiryo",
+ sans-serif;
+ background:
+ radial-gradient(circle at top,#24466f 0,#0b1220 35%,#05070d 100%);
+ color:#fff;
+ line-height:1.75;
+ -webkit-text-size-adjust:100%;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+ color:inherit;
+ text-decoration:none;
+}
+
+img{
+ max-width:100%;
 }
 
 .wrap{
-  width:min(1100px,94%);
-  margin:0 auto;
-  padding:18px 0 70px;
+ width:min(1080px,94%);
+ margin:0 auto;
+ padding:20px 0 70px;
 }
 
 .header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  padding:16px 0;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ padding:12px 0 18px;
 }
 
 .logo{
-  font-weight:900;
-  letter-spacing:.04em;
-  font-size:18px;
+ font-weight:900;
+ letter-spacing:.04em;
+ font-size:18px;
+ line-height:1.35;
 }
 
 .nav{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ justify-content:flex-end;
 }
 
 .nav a{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.18);
-  color:#e5e7eb;
-  font-size:14px;
-  font-weight:800;
+ display:inline-block;
+ padding:10px 14px;
+ border-radius:999px;
+ background:rgba(255,255,255,.1);
+ border:1px solid rgba(255,255,255,.18);
+ color:#e5e7eb;
+ font-size:14px;
+ font-weight:800;
+}
+
+.nav a.active{
+ background:rgba(250,204,21,.22);
+ border-color:rgba(250,204,21,.55);
+ color:#fef9c3;
 }
 
 .hero{
-  text-align:center;
-  padding:34px 16px 30px;
+ margin-top:10px;
+ border-radius:34px;
+ overflow:hidden;
+ background:
+ radial-gradient(circle at top right,rgba(250,204,21,.24),transparent 32%),
+ linear-gradient(135deg,rgba(15,23,42,.96),rgba(30,64,175,.75));
+ border:1px solid rgba(255,255,255,.16);
+ box-shadow:0 24px 70px rgba(0,0,0,.38);
+}
+
+.heroGrid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:0;
+}
+
+.heroText{
+ padding:28px 22px;
 }
 
 .badge{
-  display:inline-block;
-  padding:8px 16px;
-  border:1px solid rgba(250,204,21,.4);
-  border-radius:999px;
-  background:rgba(250,204,21,.14);
-  color:#fef9c3;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:16px;
+ display:inline-block;
+ padding:8px 15px;
+ border-radius:999px;
+ background:rgba(250,204,21,.16);
+ border:1px solid rgba(250,204,21,.38);
+ color:#fef9c3;
+ font-size:14px;
+ font-weight:900;
+ margin-bottom:14px;
 }
 
 .hero h1{
-  margin:0;
-  font-size:clamp(30px,7vw,56px);
-  line-height:1.16;
-  font-weight:900;
+ margin:0;
+ font-size:clamp(32px,8vw,58px);
+ line-height:1.15;
+ font-weight:900;
 }
 
 .hero h1 span{
-  display:block;
-  color:#facc15;
+ color:#facc15;
+ display:block;
 }
 
 .hero p{
-  max-width:820px;
-  margin:18px auto 0;
-  color:#e5e7eb;
-  font-size:clamp(16px,4vw,21px);
-  font-weight:800;
+ margin:16px 0 0;
+ color:#e5e7eb;
+ font-size:clamp(16px,4vw,21px);
+ font-weight:760;
+}
+
+.heroImage{
+ min-height:180px;
+ background:#020617;
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+}
+
+.heroImage img{
+ width:100%;
+ display:block;
+}
+
+.fallback{
+ padding:42px 20px;
+ text-align:center;
+ color:#cbd5e1;
+ font-weight:900;
+}
+
+.section{
+ margin-top:24px;
 }
 
 .card{
-  background:rgba(255,255,255,.95);
-  color:#111827;
-  border-radius:28px;
-  padding:24px;
-  margin:18px 0;
-  box-shadow:0 18px 50px rgba(0,0,0,.28);
-  border:1px solid rgba(255,255,255,.22);
+ background:rgba(255,255,255,.94);
+ color:#111827;
+ border-radius:26px;
+ padding:22px;
+ box-shadow:0 18px 48px rgba(0,0,0,.24);
 }
 
-.card.dark{
-  background:rgba(15,23,42,.94);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.14);
-}
-
-.card.gold{
-  background:linear-gradient(135deg,rgba(250,204,21,.98),rgba(249,115,22,.96));
-  color:#111827;
+.cardDark{
+ background:rgba(15,23,42,.78);
+ color:#fff;
+ border:1px solid rgba(255,255,255,.16);
 }
 
 .card h2{
-  margin:0 0 14px;
-  font-size:clamp(24px,5vw,34px);
-  line-height:1.3;
+ margin:0 0 12px;
+ font-size:clamp(24px,5vw,36px);
+ line-height:1.25;
+ color:#0f172a;
+}
+
+.cardDark h2{
+ color:#fff;
 }
 
 .card h3{
-  margin:24px 0 10px;
-  font-size:20px;
+ margin:0 0 8px;
+ font-size:21px;
+ color:#0f172a;
+}
+
+.cardDark h3{
+ color:#fef9c3;
+}
+
+.card p{
+ margin:10px 0 0;
+ color:#334155;
+ font-weight:760;
+}
+
+.cardDark p{
+ color:#d1d5db;
 }
 
 .lead{
-  font-size:18px;
-  font-weight:800;
-  color:#374151;
-  margin:0 0 18px;
-}
-
-.dark .lead{
-  color:#d1d5db;
-}
-
-.wideImage{
-  margin:18px 0 22px;
-  border-radius:26px;
-  overflow:hidden;
-  background:#000;
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 16px 42px rgba(0,0,0,.28);
-}
-
-.wideImage img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-
-.textBlock{
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-  border-radius:22px;
-  padding:18px;
-  margin:14px 0;
-}
-
-.dark .textBlock{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
-}
-
-.bigPhrase{
-  font-size:clamp(22px,5vw,34px);
-  font-weight:900;
-  line-height:1.45;
-  margin:8px 0;
-}
-
-.bigPhrase span{
-  color:#facc15;
+ font-size:18px;
+ font-weight:800;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
+ display:grid;
+ grid-template-columns:1fr;
+ gap:16px;
+ margin-top:16px;
 }
 
 .item{
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-  border-radius:20px;
-  padding:18px;
+ background:#f8fafc;
+ border:1px solid #e2e8f0;
+ border-radius:22px;
+ padding:16px;
 }
 
-.dark .item{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
+.item strong{
+ display:block;
+ color:#0f172a;
+ font-size:18px;
+ font-weight:900;
+ margin-bottom:5px;
 }
 
-.item h3{
-  margin:0 0 8px;
-  font-size:19px;
+.item span{
+ display:block;
+ color:#475569;
+ font-weight:760;
 }
 
-.item p{
-  margin:0;
+.darkItem{
+ background:rgba(255,255,255,.08);
+ border:1px solid rgba(255,255,255,.16);
+ color:#fff;
 }
 
-.list{
-  margin:0;
-  padding-left:1.2em;
+.darkItem strong{
+ color:#fef9c3;
 }
 
-.list li{
-  margin:8px 0;
-  font-weight:700;
+.darkItem span{
+ color:#d1d5db;
 }
 
-.profileBox{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
+.flow{
+ counter-reset:step;
+ display:grid;
+ grid-template-columns:1fr;
+ gap:14px;
+ margin-top:16px;
 }
 
-.profileName{
-  font-size:26px;
-  font-weight:900;
-  margin:0 0 8px;
+.flowItem{
+ position:relative;
+ background:#fff;
+ border:1px solid #e5e7eb;
+ border-radius:22px;
+ padding:18px 16px 18px 72px;
 }
 
-.profileSub{
-  color:#4b5563;
-  font-weight:800;
-  margin:0 0 12px;
+.flowItem::before{
+ counter-increment:step;
+ content:counter(step);
+ position:absolute;
+ left:16px;
+ top:18px;
+ width:40px;
+ height:40px;
+ border-radius:15px;
+ display:grid;
+ place-items:center;
+ background:linear-gradient(135deg,#facc15,#f97316);
+ color:#111827;
+ font-weight:900;
+ font-size:20px;
 }
 
-.servicePrice{
-  font-size:24px;
-  font-weight:900;
-  color:#b45309;
-  margin-top:10px;
+.flowItem b{
+ display:block;
+ color:#0f172a;
+ font-size:18px;
 }
 
-.btnArea{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
-  margin-top:22px;
+.flowItem small{
+ display:block;
+ margin-top:4px;
+ color:#475569;
+ font-size:14px;
+ font-weight:780;
+}
+
+.messageBox{
+ background:
+ radial-gradient(circle at top right,rgba(250,204,21,.22),transparent 34%),
+ linear-gradient(135deg,#0f172a,#1e3a8a);
+ border:1px solid rgba(255,255,255,.16);
+ border-radius:28px;
+ padding:24px;
+ color:#fff;
+ box-shadow:0 18px 48px rgba(0,0,0,.24);
+}
+
+.messageBox h2{
+ margin:0 0 12px;
+ font-size:clamp(26px,6vw,42px);
+ line-height:1.25;
+}
+
+.messageBox p{
+ margin:10px 0 0;
+ color:#e5e7eb;
+ font-weight:780;
+}
+
+.actionRow{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:12px;
+ margin-top:18px;
 }
 
 .btn{
-  display:block;
-  text-align:center;
-  border-radius:18px;
-  padding:16px 18px;
-  font-size:17px;
-  font-weight:900;
+ display:block;
+ width:100%;
+ border:0;
+ border-radius:18px;
+ padding:15px 18px;
+ cursor:pointer;
+ text-align:center;
+ font-size:16px;
+ font-weight:900;
 }
 
-.btnMain{
-  background:linear-gradient(135deg,#facc15,#f97316);
-  color:#111827;
+.btnPrimary{
+ background:linear-gradient(135deg,#facc15,#f97316);
+ color:#111827;
 }
 
-.btnSub{
-  background:#1d4ed8;
-  color:#fff;
+.btnBlue{
+ background:linear-gradient(135deg,#2563eb,#0ea5e9);
+ color:#fff;
 }
 
-.btnDark{
-  background:#111827;
-  color:#fff;
+.btnWhite{
+ background:#fff;
+ color:#0f172a;
+ border:1px solid #cbd5e1;
 }
 
 .footer{
-  text-align:center;
-  color:#cbd5e1;
-  padding:28px 0 0;
-  font-size:14px;
+ margin-top:40px;
+ padding:24px 0;
+ text-align:center;
+ color:#cbd5e1;
+ font-weight:700;
 }
 
-@media (min-width:800px){
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .profileBox{
-    grid-template-columns:1.1fr .9fr;
-  }
-
-  .btnArea{
-    grid-template-columns:repeat(3,1fr);
-  }
+.smallNote{
+ margin-top:12px;
+ color:#94a3b8;
+ font-size:13px;
+ font-weight:700;
 }
+
+@media (min-width:760px){
+
+ .heroGrid{
+  grid-template-columns:1.08fr .92fr;
+ }
+
+ .heroText{
+  padding:44px 38px;
+ }
+
+ .grid{
+  grid-template-columns:repeat(3,1fr);
+ }
+
+ .flow{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .actionRow{
+  grid-template-columns:repeat(3,1fr);
+ }
+
+}
+
+@media (max-width:640px){
+
+ .header{
+  display:block;
+ }
+
+ .logo{
+  margin-bottom:12px;
+ }
+
+ .nav{
+  justify-content:flex-start;
+ }
+
+ .nav a{
+  font-size:13px;
+  padding:9px 11px;
+ }
+
+ .card{
+  padding:18px;
+ }
+
+ .flowItem{
+  padding-left:66px;
+ }
+
+}
+
 </style>
 </head>
 
 <body>
+
 <div class="wrap">
 
-  <header class="header">
-    <div class="logo">想いを形にするDX</div>
-    <nav class="nav">
-      <a href="index.html">診断ページ</a>
-      <a href="#service">作成代行</a>
-      <a href="contact.html">相談する</a>
-      <a href="#profile">プロフィール</a>
-    </nav>
-  </header>
+<header class="header">
+ <a class="logo" href="index.html">
+  想いを形にするDX
+ </a>
 
-  <section class="hero">
-    <div class="badge">このDXについて</div>
-    <h1>
-      想いを、企画に。
-      <span>企画を、動くDXに。</span>
-    </h1>
-    <p>
-      「地域を良くしたい」「お店をPRしたい」「困っている人を助けたい」。
-      その想いを、Q&Aで整理し、DX設計シート・企画書・AI指示文へ変換する
-      伴走型ナビゲーションDXです。
-    </p>
-  </section>
+ <nav class="nav">
+  <a href="index.html">診断ページ</a>
+  <a class="active" href="about.html">このDXについて</a>
+  <a href="contact.html">相談・依頼</a>
+ </nav>
+</header>
 
-  <section class="card gold">
-    <h2>基本コンセプト</h2>
-    <div class="bigPhrase">
-      「探しに行くDX」から、<br>
-      「必要な情報と手順が届くDX」へ。
-    </div>
-    <p>
-      補助金、提案先、制作手順、AIへの頼み方。
-      これまでは利用者が自分で探しに行く必要がありました。
-      しかし本来は、やりたいことや課題を入力したら、
-      必要な情報と次の一手が届くべきです。
-    </p>
-  </section>
+<main>
 
-  <section class="card">
-    <h2>このDXが解決すること</h2>
-    <p class="lead">
-      アイデアはある。でも、形にする方法が分からない。
-      その最初の壁をなくします。
-    </p>
+<section class="hero">
 
-    <div class="wideImage">
-      <img src="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_service-support.jpg" alt="DX作成代行・相談サポート">
-    </div>
+ <div class="heroGrid">
 
-    <div class="grid">
-      <div class="item">
-        <h3>何から始めればいいか分からない</h3>
-        <p>
-          Q&Aに答えるだけで、目的・対象者・課題・最小版を整理します。
-        </p>
-      </div>
+  <div class="heroText">
+   <div class="badge">
+    小さく生んで、大きく育てるDX
+   </div>
 
-      <div class="item">
-        <h3>AIに何を頼めばいいか分からない</h3>
-        <p>
-          そのままAIに貼れる制作指示文を自動で作ります。
-        </p>
-      </div>
+   <h1>
+    想いを整理し、
+    <span>形にする入口</span>
+   </h1>
 
-      <div class="item">
-        <h3>企画書や提案書にできない</h3>
-        <p>
-          行政、指定管理者、商店会、クラファン向けに使える文章へ整えます。
-        </p>
-      </div>
+   <p>
+    「やりたいことはあるけれど、何から始めればよいか分からない」
+    そんな人のために、質問に答えるだけで企画の骨組みを作るDXです。
+   </p>
+  </div>
 
-      <div class="item">
-        <h3>デザインをうまく言葉にできない</h3>
-        <p>
-          高級感、信頼感、地域密着、クラファン向けなどの言葉を、
-          AI用のデザイン指示文に変換します。
-        </p>
-      </div>
-    </div>
-  </section>
+  <div class="heroImage">
+   <img src="images/images_about-main.jpg" alt="このDXについて" onerror="this.style.display='none';document.getElementById('fallback').style.display='block';">
+   <div id="fallback" class="fallback" style="display:none;">
+    想いを形にするナビゲーションDX
+   </div>
+  </div>
 
-  <section class="card dark">
-    <h2>出力されるもの</h2>
-    <p class="lead">
-      入力した内容をもとに、次の文章を作ります。
-    </p>
+ </div>
 
-    <div class="grid">
-      <div class="item">
-        <h3>DX設計シート</h3>
-        <p>
-          DX名、目的、対象者、課題、必要機能、最小版、後から追加する機能を整理します。
-        </p>
-      </div>
+</section>
 
-      <div class="item">
-        <h3>企画書たたき台</h3>
-        <p>
-          背景、課題、コンセプト、提供価値、展開策、期待効果まで文章化します。
-        </p>
-      </div>
+<section class="section card">
 
-      <div class="item">
-        <h3>制作手順</h3>
-        <p>
-          まず何を作り、次に何を追加するかを順番で出します。
-        </p>
-      </div>
+ <h2>このDXは何をするものか</h2>
 
-      <div class="item">
-        <h3>AIに渡す指示文</h3>
-        <p>
-          別のAIや次のチャットでも作業を続けやすいように、制作指示を固定します。
-        </p>
-      </div>
+ <p class="lead">
+  このページは、頭の中にある企画や地域課題を、実際に作れる形へ整理するためのナビゲーションです。
+ </p>
 
-      <div class="item">
-        <h3>デザイン指示文</h3>
-        <p>
-          雰囲気、色、文字サイズ、写真の見せ方をAIに伝わる形へ変換します。
-        </p>
-      </div>
+ <p>
+  地域活動、お店のPR、イベント、観光、防災、福祉、空き家対策、クラウドファンディングなど、
+  まだ言葉になりきっていない想いを、質問に答えることで整理します。
+ </p>
 
-      <div class="item">
-        <h3>補助金・GCF・クラファン方向性</h3>
-        <p>
-          企画内容に応じて、どの支援方法や提案先が合うかを整理します。
-        </p>
-      </div>
-    </div>
-  </section>
+ <div class="grid">
 
-  <section class="card">
-    <h2>大切にしている考え方</h2>
+  <div class="item">
+   <strong>企画を整理</strong>
+   <span>
+    目的、対象者、困りごと、必要機能を見える化します。
+   </span>
+  </div>
 
-    <div class="textBlock">
-      <h3>小さく生んで、大きく育てる</h3>
-      <p>
-        最初から全部作ろうとすると、時間も費用もかかり、途中で止まりやすくなります。
-        まずは1ページの案内ページ、QRコード、SNS投稿文、Googleフォームなど、
-        すぐに試せる最小版から始めます。
-      </p>
-    </div>
+  <div class="item">
+   <strong>設計シート化</strong>
+   <span>
+    DXとして何を作ればよいか、最小版と追加機能に分けます。
+   </span>
+  </div>
 
-    <div class="textBlock">
-      <h3>動いたところは壊さない</h3>
-      <p>
-        DX制作で一番大事なのは、動いている部分を守ることです。
-        追加機能は一つずつ入れ、壊れている場所だけを直します。
-      </p>
-    </div>
+  <div class="item">
+   <strong>AI指示文化</strong>
+   <span>
+    次のAIや制作担当者に渡せる文章を作ります。
+   </span>
+  </div>
 
-    <div class="textBlock">
-      <h3>専門用語を使わない</h3>
-      <p>
-        利用者に難しいIT用語を求めません。
-        「誰に届けたいか」「何に困っているか」「どんな雰囲気にしたいか」
-        という普段の言葉から設計します。
-      </p>
-    </div>
-  </section>
+ </div>
 
-  <section id="service" class="card dark">
-    <h2>DX作成代行サービス</h2>
-    <p class="lead">
-      Q&Aで整理した内容をもとに、実際に使えるページや企画書まで作成できます。
-    </p>
+</section>
 
-    <div class="grid">
-      <div class="item">
-        <h3>企画整理コース</h3>
-        <p>
-          ヒアリング、DX設計シート、企画書たたき台を作成します。
-        </p>
-        <div class="servicePrice">5,000円〜15,000円</div>
-      </div>
+<section class="section cardDark card">
 
-      <div class="item">
-        <h3>告知ページ作成コース</h3>
-        <p>
-          1ページの案内ページ、QRコード導線、お知らせ文、SNS投稿文を作成します。
-        </p>
-        <div class="servicePrice">20,000円〜50,000円</div>
-      </div>
+ <h2>なぜ必要なのか</h2>
 
-      <div class="item">
-        <h3>本格DX作成コース</h3>
-        <p>
-          入力フォーム、お知らせページ、画像・動画表示、スプレッドシート連携などを作成します。
-        </p>
-        <div class="servicePrice">50,000円〜150,000円</div>
-      </div>
+ <p>
+  多くの人は、地域をよくしたい、お店を知ってほしい、イベントを開きたい、困っている人を助けたい、
+  という想いを持っています。
+ </p>
 
-      <div class="item">
-        <h3>クラファン・提案書コース</h3>
-        <p>
-          企画提案書、クラウドファンディング本文、支援メニュー、告知文を作成します。
-        </p>
-        <div class="servicePrice">30,000円〜100,000円</div>
-      </div>
-    </div>
-  </section>
+ <p>
+  しかし、それを実際に形にするには、企画書、ホームページ、QRコード、フォーム、動画、SNS、データ管理など、
+  いろいろな作業が必要になります。
+ </p>
 
-  <section class="card">
-    <h2>対応できる分野</h2>
+ <p>
+  このDXは、その最初の迷いを減らすためのものです。
+  完成品をいきなり作るのではなく、まず「何を作るべきか」を分かりやすく整理します。
+ </p>
 
-    <div class="wideImage">
-      <img src="https://ichirohns-jpg.github.io/omoi-navigation-dx/images/images_local-dx.jpg" alt="地域・お店・活動をDXで形にする">
-    </div>
+ <div class="grid">
 
-    <ul class="list">
-      <li>地域振興、商店街活性化、イベント告知</li>
-      <li>お店や個人事業のPR、サービス案内</li>
-      <li>観光案内、神社・歴史・まち歩き案内</li>
-      <li>防災、高齢者支援、福祉、子育て支援</li>
-      <li>空き家対策、公園活用、指定管理者への提案</li>
-      <li>補助金、GCF、クラウドファンディング準備</li>
-      <li>自治会、NPO、市民活動、地域団体の情報発信</li>
-    </ul>
-  </section>
+  <div class="item darkItem">
+   <strong>探しに行く負担を減らす</strong>
+   <span>
+    必要な情報や手順が、質問の答えから自然に出てくる形にします。
+   </span>
+  </div>
 
-  <section id="profile" class="card">
-    <h2>企画者プロフィール</h2>
+  <div class="item darkItem">
+   <strong>専門用語を減らす</strong>
+   <span>
+    難しいDX用語ではなく、日常の言葉で整理できるようにします。
+   </span>
+  </div>
 
-    <div class="profileBox">
-      <div>
-        <p class="profileName">山口 貞一郎</p>
-        <p class="profileSub">やまぐち ていいちろう</p>
-        <p>
-          空き家早期予防策「志木モデル」提唱者。
-          著書に『空き家は突然生まれない』。
-        </p>
-        <p>
-          地域課題を市民目線で捉え、空き家予防、地域支援、
-          まちづくり、DX活用に取り組んでいる。
-        </p>
-        <p>
-          地域密着型アプリ開発として「志木Go map」等の企画・制作に関わり、
-          個人活動として「志木お助け隊」を運営。
-        </p>
-      </div>
+  <div class="item darkItem">
+   <strong>次の一歩を作る</strong>
+   <span>
+    企画書、チラシ、QRページ、AI指示文につなげられます。
+   </span>
+  </div>
 
-      <div class="textBlock">
-        <ul class="list">
-          <li>空き家早期予防策「志木モデル」提唱者</li>
-          <li>著書『空き家は突然生まれない』</li>
-          <li>地域密着型アプリ開発</li>
-          <li>「志木お助け隊」運営</li>
-          <li>元 志木市消防団 32年勤続</li>
-          <li>元 NPO法人志木盛り上げたい激団志木 代表理事</li>
-          <li>介護支援専門員 ケアマネジャー</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+ </div>
 
-  <section class="card gold">
-    <h2>一言で言うと</h2>
-    <div class="bigPhrase">
-      想いはある。<br>
-      でも、形にする方法が分からない。<br><br>
-      その想いを、<br>
-      企画書に。QRページに。SNS発信に。DXに。
-    </div>
-  </section>
+</section>
 
-  <section class="card dark">
-    <h2>まずは診断ページへ</h2>
-    <p class="lead">
-      Q&Aに答えるだけで、DX設計シート・企画書たたき台・AI指示文を作れます。
-    </p>
+<section class="section card">
 
-    <div class="btnArea">
-      <a class="btn btnMain" href="index.html">診断ページを開く</a>
-      <a class="btn btnSub" href="contact.html">相談・依頼する</a>
-      <a class="btn btnDark" href="#profile">プロフィールを見る</a>
-    </div>
-  </section>
+ <h2>使い方</h2>
 
-  <footer class="footer">
-    想いを形にするナビゲーションDX<br>
-    Q&Aから設計シート・企画書・AI指示文へ
-  </footer>
+ <p>
+  まずは診断ページで、分かる範囲だけ入力してください。空欄があっても、たたき台として使えます。
+ </p>
+
+ <div class="flow">
+
+  <div class="flowItem">
+   <b>質問に答える</b>
+   <small>
+    企画名、対象者、困りごと、作りたいものを入力します。
+   </small>
+  </div>
+
+  <div class="flowItem">
+   <b>DX設計シートを作る</b>
+   <small>
+    目的、必要機能、最小版、追加機能が整理されます。
+   </small>
+  </div>
+
+  <div class="flowItem">
+   <b>企画書たたき台にする</b>
+   <small>
+    行政、商店会、団体、協力者に見せる文章へ変換できます。
+   </small>
+  </div>
+
+  <div class="flowItem">
+   <b>AI指示文として使う</b>
+   <small>
+    次のチャットや制作作業へ、そのまま渡せる文章になります。
+   </small>
+  </div>
+
+ </div>
+
+</section>
+
+<section class="section card">
+
+ <h2>向いている企画</h2>
+
+ <div class="grid">
+
+  <div class="item">
+   <strong>地域活動</strong>
+   <span>
+    活動報告、市民の声、困りごと投稿、応援メッセージなど。
+   </span>
+  </div>
+
+  <div class="item">
+   <strong>お店・商店会</strong>
+   <span>
+    お店紹介、商品PR、QR付きチラシ、地図案内、SNS導線など。
+   </span>
+  </div>
+
+  <div class="item">
+   <strong>イベント</strong>
+   <span>
+    祭り、マルシェ、講座、まち歩き、参加案内、出店情報など。
+   </span>
+  </div>
+
+  <div class="item">
+   <strong>観光・まち歩き</strong>
+   <span>
+    名所紹介、Googleマップ案内、スタンプラリー、ランキングなど。
+   </span>
+  </div>
+
+  <div class="item">
+   <strong>福祉・生活支援</strong>
+   <span>
+    相談先案内、生活支援、見守り、地域生活コンシェルジュなど。
+   </span>
+  </div>
+
+  <div class="item">
+   <strong>提案・資金集め</strong>
+   <span>
+    補助金、GCF、クラウドファンディング、企業協賛の準備など。
+   </span>
+  </div>
+
+ </div>
+
+</section>
+
+<section class="section messageBox">
+
+ <h2>大事にしている考え方</h2>
+
+ <p>
+  最初から完璧なアプリを作ろうとすると、時間も費用もかかり、途中で止まりやすくなります。
+ </p>
+
+ <p>
+  だから、このDXでは「まず小さく作る」「動いたところを壊さない」「必要なところから育てる」という考え方を大事にします。
+ </p>
+
+ <p>
+  1ページの案内、QRコード、フォーム、地図、写真、動画、管理画面。
+  それらを一度に作るのではなく、必要な順番で少しずつ形にしていきます。
+ </p>
+
+ <div class="actionRow">
+  <a class="btn btnPrimary" href="index.html#diagnosis">
+   診断を始める
+  </a>
+
+  <a class="btn btnWhite" href="index.html">
+   トップへ戻る
+  </a>
+
+  <a class="btn btnBlue" href="contact.html">
+   相談・依頼へ
+  </a>
+ </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+ <div>想いを形にするナビゲーションDX</div>
+ <div class="smallNote">
+  Q&Aから設計シート・企画書・AI指示文へ
+ </div>
+</footer>
 
 </div>
+
 </body>
 </html>
