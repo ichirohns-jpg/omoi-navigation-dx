@@ -194,3 +194,78 @@ about.html
 contact.html
 README.md
 images/
+```
+
+---
+
+## 画像フォルダ
+
+画像は `images/` フォルダに入れます。
+
+現在想定している画像：
+
+```text
+images/images_ogp.jpg
+images/images_hero-main.jpg
+images/images_qa-sheet.jpg
+images/images_design-navigation.jpg
+images/images_local-dx.jpg
+images/images_about-main.jpg
+images/images_contact-main.jpg
+```
+
+画像がない場合でも、ページが大きく壊れないように、代替表示を入れています。
+
+---
+
+## 今後追加できること
+
+- 実例ページ
+- サンプル企画集
+- PDF出力
+- QRコード作成ページ
+- 管理画面
+- Googleフォーム連携
+- Googleスプレッドシート保存
+- 相談履歴保存
+- 企画書PDF化
+- チラシ作成用プロンプト出力
+- 画像生成用プロンプト出力
+- 地域DXテンプレート集
+- お店PRテンプレート集
+- イベント案内テンプレート集
+
+---
+
+## 次に整える候補
+
+優先順位は以下です。
+
+1. index.html の診断結果文章をさらに使いやすくする
+2. about.html の説明を短く分かりやすくする
+3. contact.html の相談文を実用向けに整える
+4. 実例ページを追加する
+5. QRコード付きチラシ用の文章を作る
+6. PDF説明書を作る
+
+---
+
+## メモ
+
+このDXは、  
+「探しに行くDX」ではなく、  
+「必要な情報と手順が届くDX」  
+を目指しています。
+
+やりたいことがある人が、  
+企画書、ホームページ、QRコード、フォーム、動画、SNS発信、データ管理などで迷わないように、  
+最初の整理を助けるための入口です。
+
+---
+
+## 作成者メモ
+
+作成：山口貞一郎
+
+地域DX、まちづくり、活動報告、空き家予防、観光資源活用、地域生活支援などの企画を、  
+小さく動く形から育てていくための実験的なDXページです。
