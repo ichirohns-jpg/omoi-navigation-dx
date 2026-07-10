@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>チラシ作成｜想いを形にするナビゲーションDX</title>
+
+<meta name="description" content="想いを形にするナビゲーションDXのチラシ作成ページです。QRコード付きA4チラシの文章、画像生成指示文、配布用説明文を作れます。">
+<meta name="theme-color" content="#0b1220">
+
+<link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
+<link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/omoi-navigation-dx/apple-touch-icon.png">
+
+<style>
+
+*{
+ box-sizing:border-box;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ margin:0;
+ font-family:
+ "Hiragino Sans",
+ "Yu Gothic",
+ "Meiryo",
+ sans-serif;
+ background:
+ radial-gradient(circle at top,#24466f 0,#0b1220 35%,#05070d 100%);
+ color:#fff;
+ line-height:1.75;
+ -webkit-text-size-adjust:100%;
+}
+
+a{
+ color:inherit;
+ text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+ font-family:inherit;
+}
+
+.wrap{
+ width:min(1080px,94%);
+ margin:0 auto;
+ padding:20px 0 70px;
+}
+
+.header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ padding:12px 0 18px;
+}
+
+.logo{
+ font-weight:900;
+ letter-spacing:.04em;
+ font-size:18px;
+ line-height:1.35;
+}
+
+.nav{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ justify-content:flex-end;
+}
+
+.nav a{
+ display:inline-block;
+ padding:10px 14px;
+ border-radius:999px;
+ background:rgba(255,255,255,.1);
+ border:1px solid rgba(255,255,255,.18);
+ color:#e5e7eb;
+ font-size:14px;
+ font-weight:800;
+}
+
+.nav a.active{
+ background:rgba(250,204,21,.22);
+ border-color:rgba(250,204,21,.55);
+ color:#fef9c3;
+}
+
+.hero{
+ margin-top:10px;
+ border-radius:34px;
+ padding:30px 22px;
+ background:
+ radial-gradient(circle at top right,rgba(250,204,21,.24),transparent 32%),
+ linear-gradient(135deg,rgba(15,23,42,.96),rgba(30,64,175,.75));
+ border:1px solid rgba(255,255,255,.16);
+ box-shadow:0 24px 70px rgba(0,0,0,.38);
+}
+
+.badge{
+ display:inline-block;
+ padding:8px 15px;
+ border-radius:999px;
+ background:rgba(250,204,21,.16);
+ border:1px solid rgba(250,204,21,.38);
+ color:#fef9c3;
+ font-size:14px;
+ font-weight:900;
+ margin-bottom:14px;
+}
+
+.hero h1{
+ margin:0;
+ font-size:clamp(32px,8vw,58px);
+ line-height:1.15;
+ font-weight:900;
+}
+
+.hero h1 span{
+ color:#facc15;
+ display:block;
+}
+
+.hero p{
+ margin:16px 0 0;
+ color:#e5e7eb;
+ font-size:clamp(16px,4vw,21px);
+ font-weight:760;
+}
+
+.section{
+ margin-top:24px;
+}
+
+.card{
+ background:rgba(255,255,255,.94);
+ color:#111827;
+ border-radius:26px;
+ padding:22px;
+ box-shadow:0 18px 48px rgba(0,0,0,.24);
+}
+
+.card h2{
+ margin:0 0 12px;
+ font-size:clamp(24px,5vw,36px);
+ line-height:1.25;
+ color:#0f172a;
+}
+
+.card h3{
+ margin:0 0 8px;
+ font-size:21px;
+ color:#0f172a;
+}
+
+.card p{
+ margin:10px 0 0;
+ color:#334155;
+ font-weight:760;
+}
+
+.formGrid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:16px;
+ margin-top:16px;
+}
+
+.formBlock{
+ background:#f8fafc;
+ border:1px solid #e5e7eb;
+ border-radius:20px;
+ padding:16px;
+}
+
+.formBlock .title{
+ display:block;
+ font-weight:900;
+ color:#0f172a;
+ font-size:18px;
+ margin-bottom:6px;
+}
+
+.hint{
+ margin:0 0 10px;
+ color:#475569;
+ font-weight:700;
+ font-size:14px;
+}
+
+input,
+textarea,
+select{
+ width:100%;
+ border:1px solid #cbd5e1;
+ border-radius:16px;
+ padding:13px 14px;
+ font-size:16px;
+ color:#0f172a;
+ background:#fff;
+ outline:none;
+}
+
+textarea{
+ min-height:110px;
+ resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+ border-color:#2563eb;
+ box-shadow:0 0 0 4px rgba(37,99,235,.16);
+}
+
+.actionRow{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:12px;
+ margin-top:18px;
+}
+
+.btn{
+ display:block;
+ width:100%;
+ border:0;
+ border-radius:18px;
+ padding:15px 18px;
+ cursor:pointer;
+ text-align:center;
+ font-size:16px;
+ font-weight:900;
+}
+
+.btnPrimary{
+ background:linear-gradient(135deg,#facc15,#f97316);
+ color:#111827;
+}
+
+.btnBlue{
+ background:linear-gradient(135deg,#2563eb,#0ea5e9);
+ color:#fff;
+}
+
+.btnGreen{
+ background:linear-gradient(135deg,#16a34a,#22c55e);
+ color:#fff;
+}
+
+.btnDark{
+ background:#0f172a;
+ color:#fff;
+}
+
+.btnWhite{
+ background:#fff;
+ color:#0f172a;
+ border:1px solid #cbd5e1;
+}
+
+.resultArea{
+ display:none;
+ margin-top:24px;
+}
+
+.resultArea.show{
+ display:block;
+}
+
+.resultGrid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:18px;
+}
+
+.resultCard{
+ background:#fff;
+ color:#111827;
+ border-radius:24px;
+ padding:18px;
+ box-shadow:0 12px 34px rgba(0,0,0,.22);
+}
+
+.resultCard h3{
+ margin:0 0 10px;
+ color:#0f172a;
+ font-size:22px;
+}
+
+pre{
+ white-space:pre-wrap;
+ word-break:break-word;
+ margin:0;
+ background:#0f172a;
+ color:#e5e7eb;
+ border-radius:18px;
+ padding:16px;
+ font-size:14px;
+ line-height:1.75;
+}
+
+.copyNotice{
+ display:none;
+ position:fixed;
+ left:50%;
+ bottom:22px;
+ transform:translateX(-50%);
+ background:#facc15;
+ color:#111827;
+ padding:12px 18px;
+ border-radius:999px;
+ font-weight:900;
+ box-shadow:0 12px 34px rgba(0,0,0,.32);
+ z-index:50;
+}
+
+.copyNotice.show{
+ display:block;
+}
+
+.notice{
+ margin-top:14px;
+ padding:14px;
+ border-radius:20px;
+ background:#fff7ed;
+ border:1px solid #fed7aa;
+ color:#7c2d12;
+ font-weight:800;
+}
+
+.footer{
+ margin-top:40px;
+ padding:24px 0;
+ text-align:center;
+ color:#cbd5e1;
+ font-weight:700;
+}
+
+.smallNote{
+ margin-top:12px;
+ color:#94a3b8;
+ font-size:13px;
+ font-weight:700;
+}
+
+@media (min-width:760px){
+
+ .hero{
+  padding:44px 38px;
+ }
+
+ .formGrid{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .wide{
+  grid-column:1 / -1;
+ }
+
+ .actionRow{
+  grid-template-columns:repeat(3,1fr);
+ }
+
+ .resultGrid{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .resultCard.full{
+  grid-column:1 / -1;
+ }
+
+}
+
+@media (max-width:640px){
+
+ .header{
+  display:block;
+ }
+
+ .logo{
+  margin-bottom:12px;
+ }
+
+ .nav{
+  justify-content:flex-start;
+ }
+
+ .nav a{
+  font-size:13px;
+  padding:9px 11px;
+ }
+
+ .card{
+  padding:18px;
+ }
+
+ .formBlock{
+  padding:14px;
+ }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+ <a class="logo" href="index.html">
+  想いを形にするDX
+ </a>
+
+ <nav class="nav">
+  <a href="index.html">診断ページ</a>
+  <a href="about.html">このDXについて</a>
+  <a href="examples.html">実例集</a>
+  <a class="active" href="flyer.html">チラシ作成</a>
+  <a href="contact.html">相談・依頼</a>
+ </nav>
+</header>
+
+<main>
+
+<section class="hero">
+ <div class="badge">
+  QRコード付きA4チラシ用
+ </div>
+
+ <h1>
+  チラシの文章と
+  <span>画像指示文を作る</span>
+ </h1>
+
+ <p>
+  企画名、目的、対象者、URLを入れるだけで、A4チラシの文章、画像生成指示文、QRコード案内文を作ります。
+ </p>
+</section>
+
+<section class="section card">
+
+ <h2>チラシ用の情報を入力</h2>
+
+ <p>
+  まだ決まっていないところは空欄でも大丈夫です。まずは、たたき台として使えます。
+ </p>
+
+ <div class="formGrid">
+
+  <div class="formBlock">
+   <label class="title" for="title">企画名・サービス名</label>
+   <p class="hint">チラシの大きなタイトルになります。</p>
+   <input id="title" type="text" placeholder="例：想いを形にするナビゲーションDX">
+  </div>
+
+  <div class="formBlock">
+   <label class="title" for="catchcopy">キャッチコピー</label>
+   <p class="hint">短く印象に残る言葉。</p>
+   <input id="catchcopy" type="text" placeholder="例：質問に答えるだけで、企画のたたき台ができる">
+  </div>
+
+  <div class="formBlock wide">
+   <label class="title" for="purpose">何を伝えるチラシですか？</label>
+   <textarea id="purpose" placeholder="例：地域活動やお店PR、イベント企画を、DX設計シート・企画書・AI指示文に整理できるページを紹介したい。"></textarea>
+  </div>
+
+  <div class="formBlock">
+   <label class="title" for="target">誰に渡すチラシですか？</label>
+   <textarea id="target" placeholder="例：地域活動をしている人、商店会、お店、イベント主催者、行政や指定管理者など"></textarea>
+  </div>
+
+  <div class="formBlock">
+   <label class="title" for="benefit">相手にとってのメリット</label>
+   <textarea id="benefit" placeholder="例：やりたいことが整理でき、企画書やチラシ、ホームページ作成の最初の一歩になります。"></textarea>
+  </div>
+
+  <div class="formBlock">
+   <label class="title" for="url">QRコードのリンク先URL</label>
+   <input id="url" type="text" placeholder="例：https://ichirohns-jpg.github.io/omoi-navigation-dx/">
+  </div>
+
+  <div class="formBlock">
+   <label class="title" for="tone">チラシの雰囲気</label>
+   <select id="tone">
+    <option value="信頼感があり、親しみやすい">信頼感があり、親しみやすい</option>
+    <option value="行政・地域活動らしい安心感">行政・地域活動らしい安心感</option>
+    <option value="お店PRらしい明るさ">お店PRらしい明るさ</option>
+    <option value="イベントらしい楽しさ">イベントらしい楽しさ</option>
+    <option value="高級感と未来感">高級感と未来感</option>
+    <option value="高齢者にも見やすいやさしさ">高齢者にも見やすいやさしさ</option>
+   </select>
+  </div>
+
+  <div class="formBlock">
+   <label class="title" for="color">色の方向</label>
+   <select id="color">
+    <option value="青と白を中心にした信頼感のある配色">青と白</option>
+    <option value="緑と白を中心にした地域感のある配色">緑と白</option>
+    <option value="黒と金を中心にした高級感のある配色">黒と金</option>
+    <option value="白とオレンジを中心にした明るい配色">白とオレンジ</option>
+    <option value="おまかせ">おまかせ</option>
+   </select>
+  </div>
+
+  <div class="formBlock wide">
+   <label class="title" for="memo">補足メモ</label>
+   <textarea id="memo" placeholder="例：スマホが苦手な人にも分かるように、QRコードを大きく入れたい。文字は大きく、余白を広くしたい。"></textarea>
+  </div>
+
+ </div>
+
+ <div class="actionRow">
+  <button type="button" class="btn btnPrimary" onclick="makeFlyer()">
+   チラシ文を作る
+  </button>
+
+  <button type="button" class="btn btnBlue" onclick="fillSample()">
+   サンプル入力
+  </button>
+
+  <button type="button" class="btn btnDark" onclick="clearForm()">
+   クリア
+  </button>
+ </div>
+
+ <div class="notice">
+  QRコード画像そのものは別で作成し、このチラシ画像やPDFに貼り付ける形にすると安全です。
+ </div>
+
+</section>
+
+<section id="results" class="resultArea">
+
+ <h2>生成結果</h2>
+
+ <div class="resultGrid">
+
+  <div class="resultCard">
+   <h3>A4チラシ本文</h3>
+   <button type="button" class="btn btnWhite" onclick="copyResult('flyerText')">コピー</button>
+   <pre id="flyerText"></pre>
+  </div>
+
+  <div class="resultCard">
+   <h3>画像生成指示文</h3>
+   <button type="button" class="btn btnWhite" onclick="copyResult('imagePromptText')">コピー</button>
+   <pre id="imagePromptText"></pre>
+  </div>
+
+  <div class="resultCard">
+   <h3>QRコード案内文</h3>
+   <button type="button" class="btn btnWhite" onclick="copyResult('qrText')">コピー</button>
+   <pre id="qrText"></pre>
+  </div>
+
+  <div class="resultCard">
+   <h3>手渡し説明文</h3>
+   <button type="button" class="btn btnWhite" onclick="copyResult('talkText')">コピー</button>
+   <pre id="talkText"></pre>
+  </div>
+
+  <div class="resultCard full">
+   <h3>全部まとめた文章</h3>
+   <button type="button" class="btn btnPrimary" onclick="copyResult('allText')">全部コピー</button>
+   <pre id="allText"></pre>
+  </div>
+
+ </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+ <div>想いを形にするナビゲーションDX</div>
+ <div class="smallNote">
+  QRコード付きチラシ・画像指示文作成
+ </div>
+</footer>
+
+</div>
+
+<div id="copyNotice" class="copyNotice">
+ コピーしました。
+</div>
+
+<script>
+
+function qs(id){
+ return document.getElementById(id);
+}
+
+function getValue(id){
+
+ const el =
+ qs(id);
+
+ if(!el){
+  return "";
+ }
+
+ return String(el.value || "").trim();
+
+}
+
+function setValue(id,value){
+
+ const el =
+ qs(id);
+
+ if(el){
+  el.value = value;
+ }
+
+}
+
+function setText(id,text){
+
+ const el =
+ qs(id);
+
+ if(el){
+  el.textContent = text;
+ }
+
+}
+
+function makeFlyer(){
+
+ const title =
+ getValue("title") || "想いを形にするナビゲーションDX";
+
+ const catchcopy =
+ getValue("catchcopy") || "質問に答えるだけで、企画のたたき台ができます";
+
+ const purpose =
+ getValue("purpose") || "やりたい企画や地域課題を、DX設計シート・企画書たたき台・AI指示文に整理できるページです。";
+
+ const target =
+ getValue("target") || "地域活動をしている人、お店、商店会、イベント主催者、まちづくりに関心がある人。";
+
+ const benefit =
+ getValue("benefit") || "何から始めればよいかを整理し、次の一歩を分かりやすくできます。";
+
+ const url =
+ getValue("url") || "https://ichirohns-jpg.github.io/omoi-navigation-dx/";
+
+ const tone =
+ getValue("tone") || "信頼感があり、親しみやすい";
+
+ const color =
+ getValue("color") || "青と白を中心にした信頼感のある配色";
+
+ const memo =
+ getValue("memo");
+
+ const flyer =
+ [
+  title,
+  "",
+  catchcopy,
+  "",
+  purpose,
+  "",
+  "こんな方におすすめです",
+  target,
+  "",
+  "できること",
+  "・質問に答えて企画を整理",
+  "・DX設計シートを作成",
+  "・企画書たたき台を作成",
+  "・AIに渡す制作指示文を作成",
+  "・チラシやホームページの最初の材料づくり",
+  "",
+  "使い方",
+  "1. QRコードを読み取る",
+  "2. 質問に答える",
+  "3. 生成された文章をコピーする",
+  "4. 企画書、チラシ、AI指示文に活用する",
+  "",
+  "相手にとってのメリット",
+  benefit,
+  "",
+  "QRコードからご覧ください",
+  url,
+  "",
+  "まずは小さく作り、動いたところを壊さず、必要なところから少しずつ育てていきます。"
+ ].join("\n");
+
+ const imagePrompt =
+ [
+  "A4縦サイズのチラシ画像を作成してください。",
+  "",
+  "テーマ：",
+  title,
+  "",
+  "キャッチコピー：",
+  catchcopy,
+  "",
+  "目的：",
+  purpose,
+  "",
+  "デザイン条件：",
+  "・" + tone,
+  "・" + color,
+  "・スマートフォンが苦手な人にも分かりやすい",
+  "・文字は大きく、余白を広く",
+  "・QRコード欄を下部に大きく配置",
+  "・QRコードそのものは生成せず、白い四角い枠で「QRコード欄」と分かるようにする",
+  "・A4印刷で見やすい",
+  "・情報を詰め込みすぎない",
+  "",
+  "入れる文字：",
+  title,
+  catchcopy,
+  "",
+  "説明文：",
+  purpose,
+  "",
+  "できること：",
+  "・質問に答えて企画を整理",
+  "・DX設計シートを作成",
+  "・企画書たたき台を作成",
+  "・AIに渡す制作指示文を作成",
+  "",
+  "下部：",
+  "QRコードからご覧ください",
+  "",
+  "QRコード欄の下にURL：",
+  url,
+  "",
+  "補足：",
+  memo || "高齢者にも見やすく、信頼感と親しみやすさが伝わるチラシにしてください。"
+ ].join("\n");
+
+ const qr =
+ [
+  "QRコード作成用",
+  "",
+  "URL：",
+  url,
+  "",
+  "用途：",
+  title + " の案内チラシに貼るQRコード。",
+  "",
+  "条件：",
+  "・正方形",
+  "・白背景",
+  "・黒いQRコード",
+  "・余白をしっかり取る",
+  "・印刷しても読み取りやすい",
+  "・装飾は最小限",
+  "",
+  "入れる文字：",
+  title,
+  "QRコードを読み取ってご覧ください"
+ ].join("\n");
+
+ const talk =
+ [
+  "手渡し説明文",
+  "",
+  "これは「" + title + "」の案内です。",
+  "",
+  catchcopy,
+  "",
+  "QRコードを読み取ると、スマホで内容を見ることができます。",
+  "企画や地域活動、お店PR、イベントなどを整理して、企画書やAI指示文のたたき台にできます。",
+  "",
+  "まだ試験的なページですが、まずは小さく使ってみて、必要なところから少しずつ改善していく形です。"
+ ].join("\n");
+
+ const all =
+ [
+  "【A4チラシ本文】",
+  flyer,
+  "",
+  "【画像生成指示文】",
+  imagePrompt,
+  "",
+  "【QRコード案内文】",
+  qr,
+  "",
+  "【手渡し説明文】",
+  talk
+ ].join("\n");
+
+ setText("flyerText",flyer);
+ setText("imagePromptText",imagePrompt);
+ setText("qrText",qr);
+ setText("talkText",talk);
+ setText("allText",all);
+
+ const results =
+ qs("results");
+
+ if(results){
+  results.classList.add("show");
+  results.scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+  });
+ }
+
+}
+
+function fillSample(){
+
+ setValue("title","想いを形にするナビゲーションDX");
+ setValue("catchcopy","質問に答えるだけで、企画のたたき台ができます");
+ setValue("purpose","地域活動、お店PR、イベント企画、まち歩き、GCF提案などを、DX設計シート・企画書たたき台・AI指示文に整理できるページです。");
+ setValue("target","地域活動をしている人、商店会、お店、イベント主催者、行政や指定管理者に提案したい人。");
+ setValue("benefit","頭の中にあるアイデアを整理し、次に何を作ればよいかを分かりやすくできます。");
+ setValue("url","https://ichirohns-jpg.github.io/omoi-navigation-dx/");
+ setValue("tone","信頼感があり、親しみやすい");
+ setValue("color","青と白を中心にした信頼感のある配色");
+ setValue("memo","QRコードを大きく入れ、高齢者にも読みやすいチラシにしたい。");
+
+}
+
+function clearForm(){
+
+ [
+  "title",
+  "catchcopy",
+  "purpose",
+  "target",
+  "benefit",
+  "url",
+  "memo"
+ ].forEach(function(id){
+  setValue(id,"");
+ });
+
+ setValue("tone","信頼感があり、親しみやすい");
+ setValue("color","青と白を中心にした信頼感のある配色");
+
+ [
+  "flyerText",
+  "imagePromptText",
+  "qrText",
+  "talkText",
+  "allText"
+ ].forEach(function(id){
+  setText(id,"");
+ });
+
+ const results =
+ qs("results");
+
+ if(results){
+  results.classList.remove("show");
+ }
+
+ window.scrollTo({
+  top:0,
+  behavior:"smooth"
+ });
+
+}
+
+function copyResult(id){
+
+ const el =
+ qs(id);
+
+ if(!el){
+  return;
+ }
+
+ const text =
+ el.textContent || "";
+
+ if(!text.trim()){
+  return;
+ }
+
+ if(navigator.clipboard){
+
+  navigator.clipboard.writeText(text).then(function(){
+   showCopyNotice();
+  }).catch(function(){
+   fallbackCopy(text);
+  });
+
+ }else{
+
+  fallbackCopy(text);
+
+ }
+
+}
+
+function fallbackCopy(text){
+
+ const area =
+ document.createElement("textarea");
+
+ area.value = text;
+ document.body.appendChild(area);
+ area.select();
+ document.execCommand("copy");
+ document.body.removeChild(area);
+
+ showCopyNotice();
+
+}
+
+function showCopyNotice(){
+
+ const notice =
+ qs("copyNotice");
+
+ if(!notice){
+  return;
+ }
+
+ notice.classList.add("show");
+
+ setTimeout(function(){
+  notice.classList.remove("show");
+ },1600);
+
+}
+
+</script>
+
+</body>
+</html>
